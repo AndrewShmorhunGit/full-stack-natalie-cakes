@@ -1,0 +1,13 @@
+{
+  "short_name": "NC",
+  "name": "Natalie Cakes",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "*",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "natalie-cakes-back",
+  "version": "1.0.0",
+  "description": "server side of natalie-cakes-web",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q src/server.ts\"",
+    "push": "cross-env-shell \"git push $GIT_SSH",
+    "start": "node src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndrewShmorhunGit/natalie-cakes-back",
+    "ssh": "git@github.com:AndrewShmorhunGit/natalie-cakes-back.git"
+  },
+  "author": "Andrew Shmorhun",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.4.2",
+    "concurrently": "^8.2.0",
+    "nodemon": "^3.0.1",
+    "typescript": "^5.1.6"
+  }
+  
+}
