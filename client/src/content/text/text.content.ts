@@ -4,7 +4,7 @@ import { HeaderDecoLoader, BlockDecoLoader } from "components";
 import {
   decoBlockPropsData,
   decoHeaderPropsData,
-} from "data/settings.static.data";
+} from "data/static.settings.data";
 const decoHeaderProps = decoHeaderPropsData;
 const decoBlockProps = decoBlockPropsData;
 const address = "Natalie 23 str, Eilat";

@@ -7,7 +7,7 @@ interface IMenuItemData {
 }
 
 export interface IMenuContent {
-  moussesCakes: {
+  [x: string]: {
     name: string;
     chocolatePassionFruit: IMenuItemData;
   };

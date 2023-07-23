@@ -208,7 +208,11 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                           {item.variants.map((variant) => {
                             return (
                               <PositionVariantContainer
-                                key={variant.size + index}
+                                key={
+                                  typeof variant.size === "string"
+                                    ? `variant.size + ${index}`
+                                    : index
+                                }
                                 className={css({
                                   ...createGrid(
                                     `0.5fr ${
