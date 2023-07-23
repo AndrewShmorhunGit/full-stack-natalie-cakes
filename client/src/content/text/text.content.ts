@@ -80,6 +80,7 @@ export const contentEmpty: IInnerContent = {
   },
   callBackBtn: HeaderDecoLoader(decoHeaderProps),
   //Menu
+  menuTitle: HeaderDecoLoader(decoHeaderProps),
   menuContent: menuContentEmpty,
   sweetness: "",
   sourness: "",

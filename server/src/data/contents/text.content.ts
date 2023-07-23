@@ -70,6 +70,7 @@ const contentEn: IInnerContent = {
   },
   callBackBtn: "Take a call",
   //Menu
+  menuTitle: "Menu",
   menuContent: menuContentEn,
   sweetness: "sweetness",
   sourness: "sourness",
@@ -142,6 +143,7 @@ const contentRu: IInnerContent = {
   },
   callBackBtn: "обратный вызов",
   //Menu
+  menuTitle: "Меню",
   menuContent: menuContentRu,
   sweetness: "сладость",
   sourness: "кислинка",
@@ -214,6 +216,7 @@ const contentHb: IInnerContent = {
   },
   callBackBtn: "בקש שיחה",
   //Menu
+  menuTitle: "תַפרִיט",
   menuContent: menuContentHb,
   sweetness: "מֶתֶק",
   sourness: "חֲמִיצוּת",

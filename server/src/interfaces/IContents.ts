@@ -72,6 +72,7 @@ export interface IInnerContent {
   };
   callBackBtn: string;
   // Menu
+  menuTitle: string;
   menuContent: IMenuContent;
   sweetness: string;
   sourness: string;

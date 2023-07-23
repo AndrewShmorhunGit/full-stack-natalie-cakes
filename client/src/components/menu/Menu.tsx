@@ -64,7 +64,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
           textTransform: "capitalize",
         })}
       >
-        Menu /*Translate*/
+        {content.menuTitle}
       </MainHeader>
       <Container
         className={css({

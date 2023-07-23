@@ -74,6 +74,7 @@ export interface IInnerContent {
   };
   callBackBtn: string | ReactNode;
   // Menu
+  menuTitle: string | ReactNode;
   menuContent: IMenuContent;
   sweetness: string;
   sourness: string;
