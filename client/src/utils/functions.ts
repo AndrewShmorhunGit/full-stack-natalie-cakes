@@ -24,3 +24,11 @@ export const loading = (language: string): string => {
   if (language === "hb") return "טוען...";
   return "(Error) Language is not received!";
 };
+
+export const showPrice = (price: number): string => {
+  const unit: string = (price * 100).toFixed().slice(0, -2);
+  const cents: string = (price * 100).toFixed().slice(-2);
+  const arrayToJoin: string[] = [unit === "" ? "0" : unit, cents];
+  const actualPrice: string = arrayToJoin.join(",");
+  return actualPrice;
+};

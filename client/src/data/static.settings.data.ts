@@ -27,15 +27,40 @@ interface ISizeVariant {
   price: number;
 }
 
+interface ICategoryParams {
+  sizes: string[];
+  persons: number[];
+  weight: number[];
+  radius: number[];
+  prices: number[];
+}
+
+// Price editor function alow us to change all unit size prices
+function editAllPrices(price: number): number {
+  const multiplyPrice = 1;
+  const multiplyTotalPrice = 1;
+  const addAll = 0;
+  return (price * multiplyPrice + addAll) * multiplyTotalPrice;
+}
+
+const priceList = {
+  musses: [110, 140, 175, 280],
+  biscuits: [160, 220, 290, 340],
+};
+
+// Musses params as a default
+const defaultParams = {
+  sizes: ["xs", "s", "m", "l"],
+  persons: [8, 10, 12, 22],
+  weight: [1.2, 1.6, 2.0, 3.3],
+  radius: [180, 200, 220, 260],
+  prices: priceList.musses,
+};
+
 export function createCategoryVariantsArrayData(
-  [xs = 0, s = 0, m = 0, l = 0],
-  categoryParams: {
-    sizes: string[];
-    persons: number[];
-    weight: number[];
-    radius: number[];
-    // prices: number[];
-  }
+  // This array allow us to add or subtract from the categoryParams.price array for each menu unit size
+  [xs, s, m, l]: (number | null)[] = [0, 0, 0, 0],
+  categoryParams: ICategoryParams = defaultParams
 ): ISizeVariant[] {
   function createVariant(arr: string[] | number[]): IVariant {
     return { xs: arr[0], s: arr[1], m: arr[2], l: arr[3] };
@@ -45,7 +70,7 @@ export function createCategoryVariantsArrayData(
   const persons = createVariant(categoryParams.persons);
   const weights = createVariant(categoryParams.weight);
   const radius = createVariant(categoryParams.radius);
-  // const prices = createVariant(categoryParams.prices);
+  const prices = createVariant(categoryParams.prices);
 
   function createSizeVariant(
     size: "xs" | "s" | "m" | "l",
@@ -56,22 +81,22 @@ export function createCategoryVariantsArrayData(
       radius: +radius[size],
       persons: +persons[size],
       weight: +weights[size],
-      price,
+      price: editAllPrices(+prices[size] + price),
     };
   }
 
   let categoryVariants = [];
-  if (l) {
-    categoryVariants.push(createSizeVariant("l", +l));
+  if (xs !== null) {
+    categoryVariants.push(createSizeVariant("xs", +xs));
   }
-  if (m) {
-    categoryVariants.push(createSizeVariant("m", +m));
-  }
-  if (s) {
+  if (s !== null) {
     categoryVariants.push(createSizeVariant("s", +s));
   }
-  if (xs) {
-    categoryVariants.push(createSizeVariant("xs", +xs));
+  if (m !== null) {
+    categoryVariants.push(createSizeVariant("m", +m));
+  }
+  if (l !== null) {
+    categoryVariants.push(createSizeVariant("l", +l));
   }
   return categoryVariants;
 }

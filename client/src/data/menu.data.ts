@@ -1,36 +1,17 @@
 import { IMenuContent } from "interfaces/IContent";
 
 // Images import
-import MoussesChocolatePassionFruit from "content/images/menu/mousses/chocolate-passion-fruit.png";
+import MoussesChocolatePassionFruit from "content/images/menu/mousses/chocolate-passion-fruit.svg";
 import { createCategoryVariantsArrayData } from "./static.settings.data";
 
 const createCategoryVariantsArray = createCategoryVariantsArrayData;
-
-// function setAllPrices(price: number): string {
-//   const addAll = 0;
-//   const multiplyAll = 1;
-//   return `${price * multiplyAll + addAll}`;
-// }
-
-// function mussePrice(price: number[]): string[] {
-//   const add = 0;
-//   const multiply = 1;
-//   return `${+setAllPrices(+price) * multiply + add}`;
-// }
-
-const mousseParams = {
-  sizes: ["xs", "s", "m", "l"],
-  persons: [8, 10, 12, 22],
-  weight: [1.2, 1.6, 2.0, 3.3],
-  radius: [180, 200, 220, 260],
-  // prices: [110, 140, 175, 280],
-};
 
 const biscuitParams = {
   sizes: ["xs", "s", "m", "l"],
   persons: [12, 17, 23, 27],
   weight: [1.7, 2.5, 3.4, 3.9],
   radius: [180, 200, 220, 240],
+  prices: [110, 140, 175, 280],
 };
 
 export function createMenuData(content: IMenuContent) {
@@ -47,10 +28,9 @@ export function createMenuData(content: IMenuContent) {
             sourness: 3,
             sweetness: 4,
             tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
-            variants: createCategoryVariantsArray(
-              [110, 140, 175, 280],
-              mousseParams
-            ),
+            variants: createCategoryVariantsArray([null, 10, 20, 30]),
+
+            // mousseParams
           },
           {
             itemName: content.moussesCakes.chocolatePassionFruit.itemName + "1",
@@ -59,10 +39,7 @@ export function createMenuData(content: IMenuContent) {
             sourness: 3,
             sweetness: 4,
             tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
-            variants: createCategoryVariantsArray(
-              [110, 140, 175, 280],
-              mousseParams
-            ),
+            variants: createCategoryVariantsArray([null, 0, null, 0]),
           },
           {
             itemName: content.moussesCakes.chocolatePassionFruit.itemName + "2",
@@ -71,10 +48,7 @@ export function createMenuData(content: IMenuContent) {
             sourness: 3,
             sweetness: 4,
             tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
-            variants: createCategoryVariantsArray(
-              [110, 140, 175, 280],
-              mousseParams
-            ),
+            variants: createCategoryVariantsArray(),
           },
         ],
       },
@@ -88,10 +62,7 @@ export function createMenuData(content: IMenuContent) {
             sourness: 3,
             sweetness: 4,
             tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
-            variants: createCategoryVariantsArray(
-              [110, 140, 175, 280],
-              biscuitParams
-            ),
+            variants: createCategoryVariantsArray([0, 0, 0, 0], biscuitParams),
           },
           {
             itemName: content.moussesCakes.chocolatePassionFruit.itemName + "1",
@@ -100,10 +71,9 @@ export function createMenuData(content: IMenuContent) {
             sourness: 3,
             sweetness: 4,
             tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
-            variants: createCategoryVariantsArray(
-              [110, 140, 175, 280],
-              mousseParams
-            ),
+            variants: createCategoryVariantsArray(),
+
+            // mousseParams
           },
           {
             itemName: content.moussesCakes.chocolatePassionFruit.itemName + "2",
@@ -112,10 +82,7 @@ export function createMenuData(content: IMenuContent) {
             sourness: 3,
             sweetness: 4,
             tasteAccent: content.moussesCakes.chocolatePassionFruit.tasteAccent,
-            variants: createCategoryVariantsArray(
-              [110, 140, 175, 280],
-              mousseParams
-            ),
+            variants: createCategoryVariantsArray(),
           },
         ],
       },
