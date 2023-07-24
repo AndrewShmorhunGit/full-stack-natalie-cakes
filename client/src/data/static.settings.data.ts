@@ -46,6 +46,8 @@ function editAllPrices(price: number): number {
 const priceList = {
   musses: [110, 140, 175, 280],
   biscuits: [160, 220, 290, 340],
+  classic: [120, 0, 230, 0],
+  cheesecakes: [110, 0, 210, 0],
 };
 
 // Musses params as a default
@@ -57,13 +59,33 @@ const defaultParams = {
   prices: priceList.musses,
 };
 
-export const biscuitParams = {
-  sizes: ["xs", "s", "m", "l"],
-  persons: [12, 17, 23, 27],
-  weight: [1.7, 2.5, 3.4, 3.9],
-  radius: [180, 200, 220, 240],
-  prices: priceList.biscuits,
-};
+export function getCategoryParams() {
+  const biscuitParams = {
+    sizes: defaultParams.sizes,
+    persons: [12, 17, 23, 27],
+    weight: [1.7, 2.5, 3.4, 3.9],
+    radius: [180, 200, 220, 240],
+    prices: priceList.biscuits,
+  };
+
+  const classicParams = {
+    sizes: defaultParams.sizes,
+    persons: [8, 0, 15, 0],
+    weight: [1.2, 0, 2.4, 0],
+    radius: defaultParams.radius,
+    prices: priceList.classic,
+  };
+
+  const cheesecakesParams = {
+    sizes: defaultParams.sizes,
+    persons: classicParams.persons,
+    weight: classicParams.weight,
+    radius: defaultParams.radius,
+    prices: priceList.cheesecakes,
+  };
+
+  return { biscuitParams, classicParams, cheesecakesParams };
+}
 
 export function createCategoryVariantsArrayData(
   // This array allow us to add or subtract from the categoryParams.price array for each menu unit size

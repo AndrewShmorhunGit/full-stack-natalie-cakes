@@ -14,9 +14,13 @@ import honeyCake from "content/images/menu/classics/honey-cake.svg";
 import cheesecake from "content/images/menu/cheesecakes/cheesecake.svg";
 import cheesecakeCaramel from "content/images/menu/cheesecakes/cheesecake-caramel.svg";
 
-import { createCategoryVariantsArrayData } from "./static.settings.data";
+import {
+  createCategoryVariantsArrayData,
+  getCategoryParams,
+} from "./static.settings.data";
 
 const createCategoryVariantsArray = createCategoryVariantsArrayData;
+const { biscuitParams, classicParams, cheesecakesParams } = getCategoryParams();
 
 export function createMenuData(content: IMenuContent) {
   return {
@@ -35,10 +39,10 @@ export function createMenuData(content: IMenuContent) {
             variants: createCategoryVariantsArray(),
           },
           {
-            itemName: content.moussesCakes.strawberriesWithTops,
+            itemName: content.moussesCakes.strawberriesWithTops.itemName,
             imgSrc: moussesStrawberriesWithTops,
             description: content.moussesCakes.strawberriesWithTops.description,
-            sourness: 3,
+            sourness: 2,
             sweetness: 4,
             tasteAccent: content.moussesCakes.strawberriesWithTops.tasteAccent,
             variants: createCategoryVariantsArray(),
@@ -47,8 +51,8 @@ export function createMenuData(content: IMenuContent) {
             itemName: content.moussesCakes.chocolateCherry.itemName,
             imgSrc: moussesChocolateCherry,
             description: content.moussesCakes.chocolateCherry.description,
-            sourness: 3,
-            sweetness: 4,
+            sourness: 4,
+            sweetness: 2,
             tasteAccent: content.moussesCakes.chocolateCherry.tasteAccent,
             variants: createCategoryVariantsArray(),
           },
@@ -56,10 +60,10 @@ export function createMenuData(content: IMenuContent) {
             itemName: content.moussesCakes.berryYogurt.itemName,
             imgSrc: moussesBerryYogurt,
             description: content.moussesCakes.berryYogurt.description,
-            sourness: 3,
-            sweetness: 4,
+            sourness: 4,
+            sweetness: 2,
             tasteAccent: content.moussesCakes.berryYogurt.tasteAccent,
-            variants: createCategoryVariantsArray(),
+            variants: createCategoryVariantsArray([10, 20, 15, 20]),
           },
         ],
       },
@@ -74,34 +78,34 @@ export function createMenuData(content: IMenuContent) {
             sourness: 3,
             sweetness: 4,
             tasteAccent: content.biscuitCakes.berryVanilla.tasteAccent,
-            variants: createCategoryVariantsArray(),
+            variants: createCategoryVariantsArray([0, 0, 0, 0], biscuitParams),
           },
           {
             itemName: content.biscuitCakes.chocolateCaramel.itemName,
             imgSrc: biscuitsChocolateCaramel,
             description: content.biscuitCakes.chocolateCaramel.description,
-            sourness: 3,
-            sweetness: 4,
+            sourness: 0,
+            sweetness: 5,
             tasteAccent: content.biscuitCakes.chocolateCaramel.tasteAccent,
-            variants: createCategoryVariantsArray(),
+            variants: createCategoryVariantsArray([0, 0, 0, 0], biscuitParams),
           },
           {
             itemName: content.biscuitCakes.chocolateRaspberry.itemName,
             imgSrc: biscuitsChocolateRaspberry,
             description: content.biscuitCakes.chocolateRaspberry.description,
-            sourness: 3,
-            sweetness: 4,
+            sourness: 2,
+            sweetness: 2,
             tasteAccent: content.biscuitCakes.chocolateRaspberry.tasteAccent,
-            variants: createCategoryVariantsArray(),
+            variants: createCategoryVariantsArray([0, 0, 0, 0], biscuitParams),
           },
           {
             itemName: content.biscuitCakes.lemonBlueberry.itemName,
             imgSrc: biscuitsLemonBlueberry,
             description: content.biscuitCakes.lemonBlueberry.description,
-            sourness: 3,
-            sweetness: 4,
+            sourness: 2,
+            sweetness: 3,
             tasteAccent: content.biscuitCakes.lemonBlueberry.tasteAccent,
-            variants: createCategoryVariantsArray(),
+            variants: createCategoryVariantsArray([0, 0, 0, 0], biscuitParams),
           },
         ],
       },
@@ -113,19 +117,25 @@ export function createMenuData(content: IMenuContent) {
             itemName: content.classicCakes.napoleon.itemName,
             imgSrc: napoleon,
             description: content.classicCakes.napoleon.description,
-            sourness: 3,
-            sweetness: 4,
+            sourness: 0,
+            sweetness: 2,
             tasteAccent: content.classicCakes.napoleon.tasteAccent,
-            variants: createCategoryVariantsArray(),
+            variants: createCategoryVariantsArray(
+              [0, null, 0, null],
+              classicParams
+            ),
           },
           {
             itemName: content.classicCakes.honeyCake.itemName,
             imgSrc: honeyCake,
             description: content.classicCakes.honeyCake.description,
-            sourness: 3,
-            sweetness: 4,
+            sourness: 2,
+            sweetness: 2,
             tasteAccent: content.classicCakes.honeyCake.tasteAccent,
-            variants: createCategoryVariantsArray(),
+            variants: createCategoryVariantsArray(
+              [0, null, 0, null],
+              classicParams
+            ),
           },
         ],
       },
@@ -137,19 +147,25 @@ export function createMenuData(content: IMenuContent) {
             itemName: content.cheesecakes.cheesecake.itemName,
             imgSrc: cheesecake,
             description: content.cheesecakes.cheesecake.description,
-            sourness: 3,
-            sweetness: 4,
+            sourness: 1,
+            sweetness: 3,
             tasteAccent: content.cheesecakes.cheesecake.tasteAccent,
-            variants: createCategoryVariantsArray(),
+            variants: createCategoryVariantsArray(
+              [0, null, 0, null],
+              cheesecakesParams
+            ),
           },
           {
             itemName: content.cheesecakes.cheesecakeCaramel.itemName,
             imgSrc: cheesecakeCaramel,
             description: content.cheesecakes.cheesecakeCaramel.description,
-            sourness: 3,
+            sourness: 1,
             sweetness: 4,
             tasteAccent: content.cheesecakes.cheesecakeCaramel.tasteAccent,
-            variants: createCategoryVariantsArray(),
+            variants: createCategoryVariantsArray(
+              [20, null, 20, null],
+              cheesecakesParams
+            ),
           },
         ],
       },

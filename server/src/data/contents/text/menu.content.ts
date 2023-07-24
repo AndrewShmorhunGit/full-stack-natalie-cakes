@@ -32,7 +32,7 @@ export const menuContentEn: IMenuContent = {
       tasteAccent: "black currant, raspberry, top taste",
     },
     chocolateCaramel: {
-      itemName: "berry - vanilla",
+      itemName: "chocolate - caramel",
       description: `will be created from description function`,
       tasteAccent: "chocolate, caramel, salt",
     },
@@ -107,7 +107,7 @@ export const menuContentRu: IMenuContent = {
       tasteAccent: "black currant, raspberry, top taste",
     },
     chocolateCaramel: {
-      itemName: "berry - vanilla",
+      itemName: "chocolate - caramel",
       description: `will be created from description function`,
       tasteAccent: "chocolate, caramel, salt",
     },
@@ -182,7 +182,7 @@ export const menuContentHb: IMenuContent = {
       tasteAccent: "black currant, raspberry, top taste",
     },
     chocolateCaramel: {
-      itemName: "berry - vanilla",
+      itemName: "chocolate - caramel",
       description: `will be created from description function`,
       tasteAccent: "chocolate, caramel, salt",
     },
@@ -207,7 +207,7 @@ export const menuContentHb: IMenuContent = {
     honeyCake: {
       itemName: "honey cake",
       description: `will be created from description function`,
-      tasteAccent: "sour cream taste, honey",
+      tasteAccent: "sour cream taste, sweet honey",
     },
   },
   cheesecakes: {

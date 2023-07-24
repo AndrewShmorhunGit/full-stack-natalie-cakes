@@ -84,19 +84,18 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
             >
               <MenuCategoryContainer
                 className={css({
+                  cursor: "pointer",
                   fontSize: `${setMediaByStep(4, 0.2)}rem`,
                   ...createGrid("1fr 100fr", 1),
                 })}
+                onClick={() =>
+                  setIsArrow({
+                    ...isArrow,
+                    [isArrowProp]: !isArrow[isArrowProp],
+                  })
+                }
               >
-                <Container
-                  className={css({ alignSelf: "center" })}
-                  onClick={() =>
-                    setIsArrow({
-                      ...isArrow,
-                      [isArrowProp]: !isArrow[isArrowProp],
-                    })
-                  }
-                >
+                <Container className={css({ alignSelf: "center" })}>
                   <UpDownArrow
                     circleRadius={setMediaByStep(5.2, 0.2)}
                     rotate={isArrow[isArrowProp] ? 0.5 : 0}
@@ -117,7 +116,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                 className={css({
                   margin: "2rem 0",
                   overflow: "hidden",
-                  maxHeight: `${isArrow[isArrowProp] ? "200rem" : "0"}`,
+                  maxHeight: `${isArrow[isArrowProp] ? "1200rem" : "0"}`,
                   transition: `max-height ${
                     isArrow[isArrowProp] ? ".4s ease-in" : ".8s ease-out"
                   }`,
@@ -144,7 +143,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                         <MenuPositionHeader>
                           {typeof item.itemName === "string"
                             ? item.itemName
-                            : "null"}
+                            : null}
                         </MenuPositionHeader>
                         <FlexCenterContainer
                           className={css({
@@ -157,8 +156,12 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                             alt={item.description}
                             className={css({
                               cursor: "pointer",
-                              height: "100%",
-                              minWidth: "28rem",
+                              // minWidth: "28rem",
+                              overflow: "hidden",
+                              minHeight:
+                                category.name === "biscuit cakes"
+                                  ? "42rem"
+                                  : "18rem",
                             })}
                             onClick={() => setModal("test")}
                           />
@@ -176,6 +179,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                             className={css({
                               textTransform: "capitalize",
                               alignSelf: "center",
+                              minHeight: "10rem",
                             })}
                           >
                             {GetRateStars(
@@ -212,7 +216,9 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                             <p>{item.tasteAccent}</p>
                           </Container>
                         </RateAndTasteContainer>
-                        <FlexColumnContainer className={css({ gap: "1.2rem" })}>
+                        <FlexColumnContainer
+                          className={css({ gap: "1.2rem", alignSelf: "end" })}
+                        >
                           {item.variants.map((variant) => {
                             return (
                               <PositionVariantContainer
@@ -234,11 +240,9 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                                   <h3
                                     className={css({
                                       color: palette.main_primary,
-                                      fontSize: `${setMedia(
+                                      fontSize: `${setMediaByStep(
                                         2.8,
-                                        2.6,
-                                        2.4,
-                                        2.2
+                                        0.2
                                       )}rem`,
                                     })}
                                   >
