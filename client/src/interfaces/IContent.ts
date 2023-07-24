@@ -7,9 +7,29 @@ interface IMenuItemData {
 }
 
 export interface IMenuContent {
-  [x: string]: {
+  moussesCakes: {
     name: string;
     chocolatePassionFruit: IMenuItemData;
+    strawberriesWithTops: IMenuItemData;
+    chocolateCherry: IMenuItemData;
+    berryYogurt: IMenuItemData;
+  };
+  biscuitCakes: {
+    name: string;
+    berryVanilla: IMenuItemData;
+    chocolateCaramel: IMenuItemData;
+    chocolateRaspberry: IMenuItemData;
+    lemonBlueberry: IMenuItemData;
+  };
+  classicCakes: {
+    name: string;
+    napoleon: IMenuItemData;
+    honeyCake: IMenuItemData;
+  };
+  cheesecakes: {
+    name: string;
+    cheesecake: IMenuItemData;
+    cheesecakeCaramel: IMenuItemData;
   };
 }
 

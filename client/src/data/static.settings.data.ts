@@ -57,6 +57,14 @@ const defaultParams = {
   prices: priceList.musses,
 };
 
+export const biscuitParams = {
+  sizes: ["xs", "s", "m", "l"],
+  persons: [12, 17, 23, 27],
+  weight: [1.7, 2.5, 3.4, 3.9],
+  radius: [180, 200, 220, 240],
+  prices: priceList.biscuits,
+};
+
 export function createCategoryVariantsArrayData(
   // This array allow us to add or subtract from the categoryParams.price array for each menu unit size
   [xs, s, m, l]: (number | null)[] = [0, 0, 0, 0],

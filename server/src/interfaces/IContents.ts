@@ -1,4 +1,4 @@
-interface IMenuItemData {
+interface IMenuItemTextContent {
   itemName: string;
   description: string;
   tasteAccent: string;
@@ -7,7 +7,27 @@ interface IMenuItemData {
 export interface IMenuContent {
   moussesCakes: {
     name: string;
-    chocolatePassionFruit: IMenuItemData;
+    chocolatePassionFruit: IMenuItemTextContent;
+    strawberriesWithTops: IMenuItemTextContent;
+    chocolateCherry: IMenuItemTextContent;
+    berryYogurt: IMenuItemTextContent;
+  };
+  biscuitCakes: {
+    name: string;
+    berryVanilla: IMenuItemTextContent;
+    chocolateCaramel: IMenuItemTextContent;
+    chocolateRaspberry: IMenuItemTextContent;
+    lemonBlueberry: IMenuItemTextContent;
+  };
+  classicCakes: {
+    name: string;
+    napoleon: IMenuItemTextContent;
+    honeyCake: IMenuItemTextContent;
+  };
+  cheesecakes: {
+    name: string;
+    cheesecake: IMenuItemTextContent;
+    cheesecakeCaramel: IMenuItemTextContent;
   };
 }
 

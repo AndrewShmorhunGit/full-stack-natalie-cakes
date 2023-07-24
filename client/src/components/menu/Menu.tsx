@@ -130,14 +130,22 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                   category.positions.map((item, index) => {
                     return (
                       <MenuPositionContainer
-                        key={item.itemName + index}
+                        key={
+                          typeof item.itemName === "string"
+                            ? item.itemName + index
+                            : index
+                        }
                         className={css({
                           gridRow: `${
                             isMedia.big ? ((index + 1) * 2) % 2 : index + 1
                           }`,
                         })}
                       >
-                        <MenuPositionHeader>{item.itemName}</MenuPositionHeader>
+                        <MenuPositionHeader>
+                          {typeof item.itemName === "string"
+                            ? item.itemName
+                            : "null"}
+                        </MenuPositionHeader>
                         <FlexCenterContainer
                           className={css({
                             ...paddingTopBottom(2.4),
