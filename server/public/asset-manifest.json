@@ -1,17 +1,28 @@
 {
   "files": {
     "main.css": "/static/css/main.58cc6837.css",
-    "main.js": "/static/js/main.21fd98d9.js",
+    "main.js": "/static/js/main.45615f4c.js",
     "static/js/787.106a251c.chunk.js": "/static/js/787.106a251c.chunk.js",
-    "static/media/chocolate-passion-fruit.png": "/static/media/chocolate-passion-fruit.c07bbb1e7f60a1ddfc40.png",
+    "static/media/lemon-blueberry.svg": "/static/media/lemon-blueberry.38191d2bbfbef8501691e3181e85ff4e.svg",
+    "static/media/chocolate-raspberry.svg": "/static/media/chocolate-raspberry.5f02b93b8aea0125cd0b910dbb63e50b.svg",
+    "static/media/strawberries-with-tops.svg": "/static/media/strawberries-with-tops.c86fced5590466fc4acd2a8a03bc893a.svg",
+    "static/media/berry-yogurt.svg": "/static/media/berry-yogurt.cb487fc7b8f2cd96c74027e4f1929041.svg",
+    "static/media/napoleon.svg": "/static/media/napoleon.5f34f31a2113419af3779e299badb152.svg",
+    "static/media/honey-cake.svg": "/static/media/honey-cake.88db2bd591499bea37c82dd3ea05d23c.svg",
+    "static/media/berry-vanilla.svg": "/static/media/berry-vanilla.f7512bfd3275c42dc7020af2ca315301.svg",
+    "static/media/chocolate-caramel.svg": "/static/media/chocolate-caramel.01e54a945342f1a22693a014a0fadf27.svg",
+    "static/media/chocolate-cherry.svg": "/static/media/chocolate-cherry.22033bb10bb14d523cdf86bba87fb9f8.svg",
+    "static/media/cheesecake.svg": "/static/media/cheesecake.6ec0bac929cd633e869be6416b6b2ac9.svg",
+    "static/media/cheesecake-caramel.svg": "/static/media/cheesecake-caramel.012967d90f518b96d29d6d3c38f8bebd.svg",
+    "static/media/chocolate-passion-fruit.svg": "/static/media/chocolate-passion-fruit.99264ff606e200c0ab9cb831598c4fd6.svg",
     "static/media/hero-background-img.jpg": "/static/media/hero-background-img.236477fa91106a21ccb9.jpg",
     "index.html": "/index.html",
     "main.58cc6837.css.map": "/static/css/main.58cc6837.css.map",
-    "main.21fd98d9.js.map": "/static/js/main.21fd98d9.js.map",
+    "main.45615f4c.js.map": "/static/js/main.45615f4c.js.map",
     "787.106a251c.chunk.js.map": "/static/js/787.106a251c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.58cc6837.css",
-    "static/js/main.21fd98d9.js"
+    "static/js/main.45615f4c.js"
   ]
 }

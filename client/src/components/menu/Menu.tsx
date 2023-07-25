@@ -59,9 +59,9 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
     <MenuSection>
       <MainHeader
         className={css({
-          ...container,
-          paddingBottom: "8rem",
+          marginBottom: "8rem",
           textTransform: "capitalize",
+          ...container,
         })}
       >
         {content.menuTitle}
@@ -82,6 +82,16 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                   : category.name + index
               }
             >
+              {index === 0 ||
+              (index > 1 &&
+                menuData.categories[index - 1].group !== category.group) ? (
+                <div className={css({ paddingBottom: "2rem" })}>
+                  <h2 className={css({ textTransform: "capitalize" })}>
+                    {category.group}
+                  </h2>
+                </div>
+              ) : null}
+
               <MenuCategoryContainer
                 className={css({
                   cursor: "pointer",
@@ -115,8 +125,9 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
               <Container
                 className={css({
                   margin: "2rem 0",
+                  paddingBottom: isArrow[isArrowProp] ? "0.4rem" : "0",
                   overflow: "hidden",
-                  maxHeight: `${isArrow[isArrowProp] ? "1200rem" : "0"}`,
+                  maxHeight: `${isArrow[isArrowProp] ? "500rem" : "0"}`,
                   transition: `max-height ${
                     isArrow[isArrowProp] ? ".4s ease-in" : ".8s ease-out"
                   }`,
@@ -224,7 +235,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                               <PositionVariantContainer
                                 key={
                                   typeof variant.size === "string"
-                                    ? `variant.size + ${index}`
+                                    ? `${variant.size + index}`
                                     : index
                                 }
                                 className={css({

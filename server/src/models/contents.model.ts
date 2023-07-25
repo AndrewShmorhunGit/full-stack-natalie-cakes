@@ -1,3 +1,3 @@
-import { contents as contentsData } from "../data/contents/text/text.content";
+import { contentsData } from "../data/text/text.content";
 
 export const contents = contentsData;

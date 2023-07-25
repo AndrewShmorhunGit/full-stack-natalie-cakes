@@ -15,7 +15,7 @@ import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 // Interfaces
 import { IAppBox } from "interfaces";
 import { heroData } from "data/components.static.data";
-import { loading } from "utils/functions";
+import { loading, selectorsLink } from "utils/functions";
 
 export function Hero({ appBox }: { appBox: IAppBox }) {
   const {
@@ -112,7 +112,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
                     ? selector.name + index
                     : index
                 }
-                clickHandler={() => console.log(selector.name)}
+                clickHandler={() => selectorsLink(index + 1)}
                 selector={selector}
                 selectorParams={selectorParams}
                 useHover={useHover}

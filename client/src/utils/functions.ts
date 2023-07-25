@@ -32,3 +32,12 @@ export const showPrice = (price: number): string => {
   const actualPrice: string = arrayToJoin.join(",");
   return actualPrice;
 };
+
+export function selectorsLink(index: number) {
+  const level =
+    index === 1 ? 1000 : index === 2 ? 1500 : index === 3 ? 2000 : 2600;
+  if (window.scrollY <= level) {
+    window.scrollBy(0, 20);
+    setTimeout(() => selectorsLink(index), 0);
+  }
+}

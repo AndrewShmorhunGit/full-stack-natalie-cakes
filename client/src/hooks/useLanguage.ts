@@ -17,7 +17,7 @@ interface ILanguageSettings {
 }
 
 export const useLanguage = (): ILanguageSettings => {
-  const userLanguage = "hb";
+  const userLanguage = "ru";
   const { run, isLoading, isError } = useAsync();
   const [isLanguage, setLanguage] = useState(userLanguage);
   const [isLangTransition, setLangTransition] = useState(false);
@@ -31,9 +31,8 @@ export const useLanguage = (): ILanguageSettings => {
         }, 1000);
       })
     );
-
+    // blocking language switching wile loading
     setLangTransition(true);
-
     setTimeout(() => {
       setLangTransition(false);
     }, 1000);
