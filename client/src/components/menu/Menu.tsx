@@ -18,9 +18,21 @@ import {
   UpDownArrow,
   MenuCategoryContainer,
   MainHeader,
+  HeroBirthdayCakesLogo,
+  HeroCakesAndPiesLogo,
+  HeroCupCakesLogo,
+  HeroGingerbreadLogo,
+  LogoTitleBlock,
 } from "components";
 // Styles
-import { css, palette, container, createGrid, paddingTopBottom } from "styles";
+import {
+  css,
+  palette,
+  container,
+  createGrid,
+  paddingTopBottom,
+  appShadows,
+} from "styles";
 // Interfaces
 import { IAppBox } from "interfaces";
 // Data
@@ -32,7 +44,6 @@ import { useState } from "react";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
   const {
-    innerContent: { menuContent },
     innerContent: content,
     isLanguage,
     isMedia,
@@ -41,7 +52,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
     setModal,
   } = appBox;
 
-  const menuData = createMenuData(menuContent);
+  const menuData = createMenuData(content);
 
   // Fix types
   const categories: { [x: string]: boolean } | null =
@@ -57,20 +68,19 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
 
   return (
     <MenuSection>
-      <MainHeader
-        className={css({
-          marginBottom: "8rem",
-          textTransform: "capitalize",
-          ...container,
-        })}
-      >
-        {content.menuTitle}
-      </MainHeader>
       <Container
         className={css({
           ...container,
         })}
       >
+        <MainHeader
+          className={css({
+            marginBottom: "4rem",
+            textTransform: "capitalize",
+          })}
+        >
+          {content.menuTitle}
+        </MainHeader>
         {/* {Iteration from menuData object} */}
         {menuData.categories.map((category, index) => {
           const isArrowProp = toCamelCase(category.name);
@@ -85,15 +95,41 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
               {index === 0 ||
               (index > 1 &&
                 menuData.categories[index - 1].group !== category.group) ? (
-                <div className={css({ paddingBottom: "2rem" })}>
-                  <h2 className={css({ textTransform: "capitalize" })}>
-                    {category.group}
-                  </h2>
+                <div>
+                  <Container
+                    className={css({
+                      paddingBottom: "4rem",
+                    })}
+                  >
+                    <LogoTitleBlock
+                      Logo={
+                        category.group ===
+                        content.heroSelectors.birthdayCake ? (
+                          <HeroBirthdayCakesLogo height={40} width={40} />
+                        ) : category.group ===
+                          content.heroSelectors.cakesAndPies ? (
+                          <HeroCakesAndPiesLogo height={40} width={40} />
+                        ) : category.group ===
+                          content.heroSelectors.cupCakes ? (
+                          <HeroCupCakesLogo height={40} width={40} />
+                        ) : (
+                          <HeroGingerbreadLogo height={40} width={40} />
+                        )
+                      }
+                      title={category.group}
+                      setMediaByStep={setMediaByStep}
+                    />
+                  </Container>
                 </div>
               ) : null}
 
               <MenuCategoryContainer
                 className={css({
+                  transition: "all 0.5s",
+                  transform: `translateY(${
+                    isArrow[isArrowProp] ? "-1px" : "0"
+                  })`,
+                  boxShadow: isArrow[isArrowProp] ? appShadows.button : "",
                   cursor: "pointer",
                   fontSize: `${setMediaByStep(4, 0.2)}rem`,
                   ...createGrid("1fr 100fr", 1),

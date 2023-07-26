@@ -4,7 +4,6 @@
   "icons": [
     {
       "src": "icon.svg",
-      "sizes": "*",
       "type": "image/x-icon"
     }
   ],

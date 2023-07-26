@@ -296,7 +296,7 @@ function NavBurger({
 //////////
 
 const HeroSection = styled.main({
-  // minHeight: "100vh",
+  minHeight: "100vh",
   backgroundImage: `url(${heroBgImage})`,
   backgroundRepeat: "none",
   backgroundSize: "cover",
@@ -739,16 +739,17 @@ function InfoDecoLine() {
 //////////
 
 const MenuSection = styled.main({
+  borderTop: `0.4rem solid ${palette.main_primary_dark}`,
   backgroundColor: palette.background_main,
-  ...paddingTopBottom(4),
+  ...paddingTopBottom(4, 8),
 });
 
 const MenuCategoryContainer = styled.div({
   width: "100%",
   alignSelf: "center",
   padding: "2rem 3.6rem",
-  borderLeft: `solid 0.4rem ${palette.main_primary_dark}`,
-  borderRight: `solid 0.4rem ${palette.main_primary_dark}`,
+  borderLeft: `solid 0.2rem ${palette.main_primary_dark}`,
+  borderRight: `solid 0.2rem ${palette.main_primary_dark}`,
   backgroundColor: palette.background_second,
 });
 
@@ -848,7 +849,7 @@ function GetRateStars(
 
 const FooterSection = styled.div({
   backgroundColor: palette.background_second,
-  borderTop: `0.2rem solid ${palette.main_primary_dark}`,
+  borderTop: `0.4rem solid ${palette.main_primary_dark}`,
 });
 
 const FooterHeader = styled.h3({
@@ -1044,7 +1045,63 @@ const FlexCenterContainer = styled.div({
   ...styles.flexCenter,
 });
 
+const LogoHeaderContainer = styled.div({
+  maxHeight: "10rem",
+  display: "flex",
+  alignItems: "center",
+  borderBottom: `solid .2rem ${palette.main_primary_dark}`,
+  borderTop: `solid .2rem ${palette.main_primary_dark}`,
+  color: palette.text_dark,
+  padding: "1.2rem 3.6rem",
+  boxShadow: appShadows.button,
+  background: palette.background_second,
+});
+
+const LogoHeaderTitle = styled.h3({
+  textTransform: "capitalize",
+  display: "flex",
+  gap: "2.4rem",
+  alignItems: "center",
+});
+
 // COMPONENTS
+
+function LogoTitleBlock({
+  Logo,
+  title,
+  setMediaByStep,
+}: {
+  Logo: EmotionJSX.Element;
+  title: string | ReactNode;
+  setMediaByStep: (param: number, step: number) => number;
+}): EmotionJSX.Element {
+  return (
+    <LogoHeaderContainer>
+      <DecoContainer
+        width={6.2}
+        height={6.2}
+        color={palette.background_main}
+        style={{
+          // position: 'absolute',
+          borderRadius: "50%",
+          border: `solid 0.2rem ${palette.main_primary_dark}`,
+        }}
+      />
+      <FlexRowContainer
+        className={css({ gap: "3.2rem", transform: "translateX(-5.1rem)" })}
+      >
+        {Logo}
+        <LogoHeaderTitle
+          className={css({
+            fontSize: `${setMediaByStep(2.4, 0.2)}rem`,
+          })}
+        >
+          {title}
+        </LogoHeaderTitle>
+      </FlexRowContainer>
+    </LogoHeaderContainer>
+  );
+}
 
 function DecoContainer({
   width,
@@ -1180,6 +1237,9 @@ export {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
+  LogoHeaderContainer,
+  LogoHeaderTitle,
+  LogoTitleBlock,
   MainLogoText,
   DecoContainer,
 };

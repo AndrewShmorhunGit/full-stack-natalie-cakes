@@ -50,6 +50,9 @@ import {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
+  LogoHeaderContainer,
+  LogoHeaderTitle,
+  LogoTitleBlock,
   MainLogoText,
   DecoContainer,
 } from "./lib/StyledComponents";
@@ -80,6 +83,10 @@ import {
   FlagHb,
   FlagUa,
   CloseLogo,
+  BoyLogo,
+  GirlLogo,
+  ClassicLogo,
+  FruitsLogo,
 } from "./logos/Logos";
 import { HeaderDecoLoader, BlockDecoLoader } from "./logos/DecoLogos";
 // Components
@@ -130,6 +137,10 @@ export {
   CloseLogo,
   HeaderDecoLoader,
   BlockDecoLoader,
+  BoyLogo,
+  GirlLogo,
+  ClassicLogo,
+  FruitsLogo,
   // Styled Components
   // App
   AppContainer,
@@ -181,6 +192,9 @@ export {
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
+  LogoHeaderContainer,
+  LogoHeaderTitle,
+  LogoTitleBlock,
   MainLogoText,
   DecoContainer,
 };
