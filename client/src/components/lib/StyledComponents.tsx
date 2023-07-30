@@ -58,7 +58,7 @@ const NavigationSection = styled.main({
   ...container,
   position: "fixed",
   top: 0,
-  zIndex: 2,
+  zIndex: 99,
   width: "100vw",
   minWidth: "100dvw",
   background: palette.background_nav_transparent,
@@ -123,7 +123,6 @@ function UpDownArrow({
           transform: "translate(-50%, -50%)",
           border: `solid 0.2rem ${palette.main_primary_dark}`,
           zIndex: 0,
-          // boxShadow: appShadows.buttonActive,
         }}
       />
     </RelativeContainer>
@@ -856,7 +855,8 @@ function Carousel({
   setMedia: ISetMedia;
   isLanguage: string;
 }) {
-  const { slides, slideWidth, sliderColumnGap, rotate } = carouselParams;
+  const { slides, slideWidth, sliderColumnGap, length, rotate } =
+    carouselParams;
 
   const [isCarousel, setCarousel] = React.useState(0);
 
@@ -877,7 +877,7 @@ function Carousel({
           className={css({
             padding: "4rem",
             display: "grid",
-            gridTemplateColumns: `repeat(${slides.length}, 1fr)`,
+            gridTemplateColumns: `repeat(${length}, 1fr)`,
             gridTemplateRows: "1fr",
             columnGap: `${sliderColumnGap}rem`,
             alignItems: "center",
@@ -885,18 +885,18 @@ function Carousel({
         >
           <button
             className={css({
+              cursor: "pointer",
+              width: "5.2rem",
+              height: "5.2rem",
+              border: `solid 0.2rem ${palette.main_primary_dark}`,
+              borderRadius: "50%",
+              zIndex: "2",
               position: "absolute",
-              left: 0,
+              left: `-${sliderColumnGap}rem`,
               top: "50%",
             })}
             onClick={() =>
-              rotate(
-                "left",
-                slides.length,
-                slidesOnScreen,
-                isCarousel,
-                setCarousel
-              )
+              rotate("left", length, setMedia, isCarousel, setCarousel)
             }
           >
             <FlexCenterContainer
@@ -938,7 +938,6 @@ function Carousel({
                     alt=""
                     className={css({
                       transition: "all 1s",
-                      // maxHeight: "24rem",
                       maxWidth: `${slideWidth}rem`,
                       ":hover": {
                         transform: "scale(1.1)",
@@ -951,24 +950,23 @@ function Carousel({
           })}
           <button
             className={css({
+              cursor: "pointer",
+              width: "5.2rem",
+              height: "5.2rem",
+              border: `solid 0.2rem ${palette.main_primary_dark}`,
+              borderRadius: "50%",
+              zIndex: "2",
               position: "absolute",
-              right: 0,
+              right: `-${sliderColumnGap}rem`,
               top: "50%",
             })}
             onClick={() =>
-              rotate(
-                "right",
-                slides.length,
-                slidesOnScreen,
-                isCarousel,
-                setCarousel
-              )
+              rotate("right", length, setMedia, isCarousel, setCarousel)
             }
           >
             <FlexCenterContainer
               className={css({
                 transform: "rotate(-90deg)",
-                cursor: "pointer",
               })}
             >
               <ArrowDownLogo

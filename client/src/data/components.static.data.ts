@@ -185,14 +185,13 @@ export const galleryData = () => {
   const rotate = (
     direction: "left" | "right" = "left",
     limit: number,
-    slidesOnScreen: number,
+    setMedia: ISetMedia,
     isCarouselState: number,
     setCarouselState: React.Dispatch<React.SetStateAction<number>>
   ): void => {
-    if (
-      isCarouselState >= limit - isCarouselState + 1 &&
-      direction === "left"
-    ) {
+    const slidesOnScreen = +setMedia(3, 2, 1);
+
+    if (isCarouselState >= limit - slidesOnScreen && direction === "left") {
       setCarouselState(0);
       return;
     }
