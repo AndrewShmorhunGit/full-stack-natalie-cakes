@@ -33,6 +33,8 @@ import {
   RateAndTasteContainer,
   GetRateStars,
   UpDownArrow,
+  // Gallery
+  Carousel,
   // Footer
   FooterSection,
   FooterParagraph,
@@ -47,6 +49,7 @@ import {
   RelativeContainer,
   AbsoluteCenterContainer,
   AbsoluteBottomContainer,
+  GridContainer,
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,
@@ -175,6 +178,8 @@ export {
   RateAndTasteContainer,
   GetRateStars,
   UpDownArrow,
+  // Gallery
+  Carousel,
   // Footer
   FooterSection,
   FooterParagraph,
@@ -189,6 +194,7 @@ export {
   RelativeContainer,
   AbsoluteCenterContainer,
   AbsoluteBottomContainer,
+  GridContainer,
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,

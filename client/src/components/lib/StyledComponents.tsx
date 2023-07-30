@@ -27,11 +27,14 @@ import {
   IMedia,
   ISelectorParams,
   IInfoBlock,
+  ICarouselParams,
+  ISetMedia,
 } from "interfaces";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 // Content
 import heroBgImage from "content/images/hero/hero-background-img.jpg";
 import { loading } from "utils/functions";
+import React from "react";
 
 ///////////////////////////
 // STYLED APP COMPONENTS //
@@ -71,7 +74,6 @@ const LanguageDropdownContainer = styled.div({
   overflow: "hidden",
   maxHeight: "4rem",
   gap: "0.4rem",
-
   transition: "max-height 1.4s ease-in",
   ":hover": {
     maxHeight: "25rem",
@@ -326,12 +328,11 @@ const MainHeader = styled.h1({
   },
 });
 
+// Remove
 const HeroTagLine = styled.h2({
   ...paddingTopBottom(8, 10),
-  // width: "60rem",
   fontSize: "2.8rem",
   fontWeight: 400,
-
   [mq.small]: {
     fontSize: "2.4rem",
     width: "50rem",
@@ -512,7 +513,6 @@ const InfoSubHeader = styled.h4({
 });
 
 const InfoParagraph = styled.p({
-  // listStyleType: "circle",
   fontSize: "2rem",
   fontWeight: 400,
   paddingLeft: "1.2rem",
@@ -841,6 +841,149 @@ function GetRateStars(
   );
 }
 
+/////////////
+/////////////
+// GALLERY //
+/////////////
+/////////////
+
+function Carousel({
+  carouselParams,
+  setMedia,
+  isLanguage,
+}: {
+  carouselParams: ICarouselParams;
+  setMedia: ISetMedia;
+  isLanguage: string;
+}) {
+  const { slides, slideWidth, sliderColumnGap, rotate } = carouselParams;
+
+  const [isCarousel, setCarousel] = React.useState(0);
+
+  const slidesOnScreen = +setMedia(3, 2, 1);
+  const opacityCondition = (index: number) =>
+    index < slidesOnScreen + isCarousel && index >= isCarousel;
+  return (
+    <FlexCenterContainer>
+      <GridContainer
+        className={css({
+          position: "relative",
+          width: `${
+            (slideWidth + sliderColumnGap) * slidesOnScreen + sliderColumnGap
+          }rem`,
+        })}
+      >
+        <div
+          className={css({
+            padding: "4rem",
+            display: "grid",
+            gridTemplateColumns: `repeat(${slides.length}, 1fr)`,
+            gridTemplateRows: "1fr",
+            columnGap: `${sliderColumnGap}rem`,
+            alignItems: "center",
+          })}
+        >
+          <button
+            className={css({
+              position: "absolute",
+              left: 0,
+              top: "50%",
+            })}
+            onClick={() =>
+              rotate(
+                "left",
+                slides.length,
+                slidesOnScreen,
+                isCarousel,
+                setCarousel
+              )
+            }
+          >
+            <FlexCenterContainer
+              className={css({ transform: "rotate(90deg)", cursor: "pointer" })}
+            >
+              <ArrowDownLogo
+                height={24}
+                width={24}
+                fill={palette.main_primary_dark}
+              />
+            </FlexCenterContainer>
+          </button>
+          {slides.map((slide, index) => {
+            return (
+              <div
+                key={index}
+                className={css({
+                  cursor: opacityCondition(index) ? "pointer" : "",
+                  transition: "all 0.5s",
+                  width: `${slideWidth}rem`,
+                  height: " 40rem",
+                  borderRadius: "1.2rem",
+                  boxShadow: appShadows.button,
+                  overflow: "hidden",
+                  opacity: opacityCondition(index) ? 1 : 0,
+                  transform: `translateX(${isLanguage === "hb" ? "" : "-"}${
+                    (slideWidth + sliderColumnGap) * isCarousel
+                  }rem)`,
+                })}
+              >
+                <Container
+                  className={css({
+                    height: `${slideWidth}rem`,
+                    overflow: "hidden",
+                  })}
+                >
+                  <img
+                    src={slide}
+                    alt=""
+                    className={css({
+                      transition: "all 1s",
+                      // maxHeight: "24rem",
+                      maxWidth: `${slideWidth}rem`,
+                      ":hover": {
+                        transform: "scale(1.1)",
+                      },
+                    })}
+                  />
+                </Container>
+              </div>
+            );
+          })}
+          <button
+            className={css({
+              position: "absolute",
+              right: 0,
+              top: "50%",
+            })}
+            onClick={() =>
+              rotate(
+                "right",
+                slides.length,
+                slidesOnScreen,
+                isCarousel,
+                setCarousel
+              )
+            }
+          >
+            <FlexCenterContainer
+              className={css({
+                transform: "rotate(-90deg)",
+                cursor: "pointer",
+              })}
+            >
+              <ArrowDownLogo
+                height={24}
+                width={24}
+                fill={palette.main_primary_dark}
+              />
+            </FlexCenterContainer>
+          </button>
+        </div>
+      </GridContainer>
+    </FlexCenterContainer>
+  );
+}
+
 ////////////
 ////////////
 // FOOTER //
@@ -1028,6 +1171,10 @@ const AbsoluteCenterContainer = styled.div({
   left: "50%",
   top: "50%",
   transform: "translate(-50%, -50%)",
+});
+
+const GridContainer = styled.div({
+  display: "grid",
 });
 
 const FlexRowContainer = styled.div({
@@ -1228,12 +1375,15 @@ export {
   // Modal
   ModalBackgroundContainer,
   ModalContentContainer,
+  // Gallery
+  Carousel,
   // Styled and Custom Reusable Components
   Button,
   Container,
   RelativeContainer,
   AbsoluteCenterContainer,
   AbsoluteBottomContainer,
+  GridContainer,
   FlexRowContainer,
   FlexColumnContainer,
   FlexCenterContainer,

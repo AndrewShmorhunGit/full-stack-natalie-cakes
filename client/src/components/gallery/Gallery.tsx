@@ -2,20 +2,34 @@ import {
   BoyLogo,
   ClassicLogo,
   Container,
-  FlexCenterContainer,
   FruitsLogo,
   GirlLogo,
   MainHeader,
   LogoTitleBlock,
-  FlexRowContainer,
+  Carousel,
 } from "components";
-import { IAppBox } from "interfaces";
-import { appShadows, container, css, palette } from "styles";
+import { IAppBox, ICarouselParams } from "interfaces";
+import { container, css, palette } from "styles";
 import { galleryData } from "data/components.static.data";
+// import { useState } from "react";
 
 export function Gallery({ appBox }: { appBox: IAppBox }) {
-  const { setMediaByStep } = appBox;
-  const { boys, girls, fruits, classics } = galleryData();
+  const { setMediaByStep, setMedia, isLanguage } = appBox;
+
+  const { boys, girls, fruits, classics, rotate } = galleryData();
+
+  const logoParams = { width: 40, height: 40 };
+
+  const setCarouselParams = (slidesArray: string[]): ICarouselParams => {
+    return {
+      slides: slidesArray,
+      slideWidth: 24,
+      sliderColumnGap: 4,
+      length: slidesArray.length,
+      rotate,
+    };
+  };
+
   return (
     <div
       className={css({
@@ -33,226 +47,54 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
           {`decoration gallery`}
         </MainHeader>
         <div>
-          <div className={css({ padding: "4rem 0" })}>
+          <Container>
             <LogoTitleBlock
-              Logo={BoyLogo({ width: 40, height: 40 })}
+              Logo={BoyLogo(logoParams)}
               title={"for boys"}
               setMediaByStep={setMediaByStep}
             />
+            <Carousel
+              carouselParams={setCarouselParams(boys)}
+              isLanguage={isLanguage}
+              setMedia={setMedia}
+            />
+          </Container>
 
-            <div
-              className={css({
-                display: "grid",
-                gridTemplateColumns: "repeat(4, 1fr)",
-                // overflow: "hidden",
-              })}
-            >
-              <FlexRowContainer
-                className={css({
-                  // height: "34rem",
-                  gap: "4rem",
-                  padding: "4rem 2rem",
-                  alignSelf: "center",
-                })}
-              >
-                {boys.map((boy, index) => {
-                  return (
-                    <FlexCenterContainer
-                      key={index}
-                      className={css({
-                        minWidth: "24rem",
-                        minHeight: " 24rem",
-                        borderRadius: "1.2rem",
-                        boxShadow: appShadows.button,
-                        overflow: "hidden",
-                      })}
-                    >
-                      <img
-                        src={boy}
-                        alt=""
-                        className={css({
-                          maxHeight: "24rem",
-                          maxWidth: "24rem",
-                        })}
-                      />
-                      <div
-                        className={css({
-                          borderLeft: `solid 0.2rem ${palette.main_primary_dark}`,
-                          background: palette.background_second,
-                          height: "24rem",
-                          width: "10rem",
-                        })}
-                      ></div>
-                    </FlexCenterContainer>
-                  );
-                })}
-              </FlexRowContainer>
-            </div>
-          </div>
-          <div>
+          <Container>
             <LogoTitleBlock
-              Logo={GirlLogo({ width: 40, height: 40 })}
+              Logo={GirlLogo(logoParams)}
               title={"for girls"}
               setMediaByStep={setMediaByStep}
             />
-            <div
-              className={css({
-                display: "grid",
-                gridTemplateColumns: "repeat(4, 1fr)",
-                // overflow: "hidden",
-              })}
-            >
-              <FlexRowContainer
-                className={css({
-                  // height: "34rem",
-                  gap: "4rem",
-                  padding: "4rem 2rem",
-                  alignSelf: "center",
-                })}
-              >
-                {girls.map((girl, index) => {
-                  return (
-                    <FlexCenterContainer
-                      key={index}
-                      className={css({
-                        minWidth: "24rem",
-                        minHeight: " 24rem",
-                        borderRadius: "1.2rem",
-                        boxShadow: appShadows.button,
-                        overflow: "hidden",
-                      })}
-                    >
-                      <img
-                        src={girl}
-                        alt=""
-                        className={css({
-                          maxHeight: "24rem",
-                          maxWidth: "24rem",
-                        })}
-                      />
-                      <div
-                        className={css({
-                          borderLeft: `solid 0.2rem ${palette.main_primary_dark}`,
-                          background: palette.background_second,
-                          height: "24rem",
-                          width: "10rem",
-                        })}
-                      ></div>
-                    </FlexCenterContainer>
-                  );
-                })}
-              </FlexRowContainer>
-            </div>
-          </div>
+            <Carousel
+              carouselParams={setCarouselParams(girls)}
+              isLanguage={isLanguage}
+              setMedia={setMedia}
+            />
+          </Container>
           <div>
             <LogoTitleBlock
-              Logo={FruitsLogo({ width: 40, height: 40 })}
+              Logo={FruitsLogo(logoParams)}
               title={"fruits"}
               setMediaByStep={setMediaByStep}
             />
-            <div
-              className={css({
-                display: "grid",
-                gridTemplateColumns: "repeat(4, 1fr)",
-                // overflow: "hidden",
-              })}
-            >
-              <FlexRowContainer
-                className={css({
-                  // height: "34rem",
-                  gap: "4rem",
-                  padding: "4rem 2rem",
-                  alignSelf: "center",
-                })}
-              >
-                {fruits.map((fruit, index) => {
-                  return (
-                    <FlexCenterContainer
-                      key={index}
-                      className={css({
-                        minWidth: "24rem",
-                        minHeight: " 24rem",
-                        borderRadius: "1.2rem",
-                        boxShadow: appShadows.button,
-                        overflow: "hidden",
-                      })}
-                    >
-                      <img
-                        src={fruit}
-                        alt=""
-                        className={css({
-                          maxHeight: "24rem",
-                          maxWidth: "24rem",
-                        })}
-                      />
-                      <div
-                        className={css({
-                          borderLeft: `solid 0.2rem ${palette.main_primary_dark}`,
-                          background: palette.background_second,
-                          height: "24rem",
-                          width: "10rem",
-                        })}
-                      ></div>
-                    </FlexCenterContainer>
-                  );
-                })}
-              </FlexRowContainer>
-            </div>
+            <Carousel
+              carouselParams={setCarouselParams(fruits)}
+              isLanguage={isLanguage}
+              setMedia={setMedia}
+            />
           </div>
           <div>
             <LogoTitleBlock
-              Logo={ClassicLogo({ width: 40, height: 40 })}
+              Logo={ClassicLogo(logoParams)}
               title={"classic"}
               setMediaByStep={setMediaByStep}
             />
-            <div
-              className={css({
-                display: "grid",
-                gridTemplateColumns: "repeat(4, 1fr)",
-                // overflow: "hidden",
-              })}
-            >
-              <FlexRowContainer
-                className={css({
-                  // height: "34rem",
-                  gap: "4rem",
-                  padding: "4rem 2rem",
-                  alignSelf: "center",
-                })}
-              >
-                {classics.map((classic, index) => {
-                  return (
-                    <FlexCenterContainer
-                      key={index}
-                      className={css({
-                        minWidth: "24rem",
-                        minHeight: " 24rem",
-                        borderRadius: "1.2rem",
-                        boxShadow: appShadows.button,
-                        overflow: "hidden",
-                      })}
-                    >
-                      <img
-                        src={classic}
-                        alt=""
-                        className={css({
-                          maxHeight: "24rem",
-                          maxWidth: "24rem",
-                        })}
-                      />
-                      <div
-                        className={css({
-                          borderLeft: `solid 0.2rem ${palette.main_primary_dark}`,
-                          background: palette.background_second,
-                          height: "24rem",
-                          width: "10rem",
-                        })}
-                      ></div>
-                    </FlexCenterContainer>
-                  );
-                })}
-              </FlexRowContainer>
-            </div>
+            <Carousel
+              carouselParams={setCarouselParams(classics)}
+              isLanguage={isLanguage}
+              setMedia={setMedia}
+            />
           </div>
         </div>
       </Container>

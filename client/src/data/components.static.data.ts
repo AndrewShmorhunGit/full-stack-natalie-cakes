@@ -175,6 +175,38 @@ export const infoData = (content: IInnerContent, setMedia: ISetMedia) => {
 };
 
 export const galleryData = () => {
+  const carouselInitialStateData = {
+    boys: 0,
+    girls: 0,
+    fruits: 0,
+    classics: 0,
+  };
+
+  const rotate = (
+    direction: "left" | "right" = "left",
+    limit: number,
+    slidesOnScreen: number,
+    isCarouselState: number,
+    setCarouselState: React.Dispatch<React.SetStateAction<number>>
+  ): void => {
+    if (
+      isCarouselState >= limit - isCarouselState + 1 &&
+      direction === "left"
+    ) {
+      setCarouselState(0);
+      return;
+    }
+    if (isCarouselState === 0 && direction === "right") {
+      setCarouselState(limit - slidesOnScreen);
+      return;
+    }
+    if (direction === "right") {
+      setCarouselState(isCarouselState - 1);
+      return;
+    }
+    setCarouselState(isCarouselState + 1);
+  };
+
   const boys = [boy1, boy2, boy3, boy4, boy5, boy6, boy7];
   const girls = [girl1, girl2, girl3, girl4, girl5, girl6, girl7, girl8, girl9];
   const classics = [
@@ -203,5 +235,5 @@ export const galleryData = () => {
     fruit8,
     fruit9,
   ];
-  return { boys, girls, fruits, classics };
+  return { boys, girls, fruits, classics, carouselInitialStateData, rotate };
 };
