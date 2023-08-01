@@ -118,6 +118,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                       }
                       title={category.group}
                       setMediaByStep={setMediaByStep}
+                      isLanguage={isLanguage}
                     />
                   </Container>
                 </div>

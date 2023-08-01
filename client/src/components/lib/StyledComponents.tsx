@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from "react";
+import React from "react";
 // Logos
 import {
   RateFilledStarLogo,
@@ -34,7 +34,6 @@ import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 // Content
 import heroBgImage from "content/images/hero/hero-background-img.jpg";
 import { loading } from "utils/functions";
-import React from "react";
 
 ///////////////////////////
 // STYLED APP COMPONENTS //
@@ -357,7 +356,7 @@ function HeroSelectorDecoContainer({
   ) => boolean;
   style?: React.CSSProperties | undefined;
 }): EmotionJSX.Element {
-  const hoverRef = useRef(null);
+  const hoverRef = React.useRef(null);
   const isHover = useHover(hoverRef);
   return (
     <RelativeContainer
@@ -538,7 +537,7 @@ function InfoImportantTitle({
     smallParam?: string | number | undefined,
     minParam?: string | number | undefined
   ) => string | number;
-  title: string | ReactNode;
+  title: string | React.ReactNode;
 }): EmotionJSX.Element {
   return (
     <InformationImportantContainer
@@ -896,7 +895,7 @@ function Carousel({
               top: "50%",
             })}
             onClick={() =>
-              rotate("left", length, setMedia, isCarousel, setCarousel)
+              rotate("right", length, setMedia, isCarousel, setCarousel)
             }
           >
             <FlexCenterContainer
@@ -911,13 +910,13 @@ function Carousel({
           </button>
           {slides.map((slide, index) => {
             return (
-              <div
+              <GridContainer
                 key={index}
                 className={css({
                   cursor: opacityCondition(index) ? "pointer" : "",
                   transition: "all 0.5s",
                   width: `${slideWidth}rem`,
-                  height: " 40rem",
+                  height: "40rem",
                   borderRadius: "1.2rem",
                   boxShadow: appShadows.button,
                   overflow: "hidden",
@@ -933,6 +932,30 @@ function Carousel({
                     overflow: "hidden",
                   })}
                 >
+                  <GridContainer
+                    className={css({
+                      background: palette.background_second,
+                      position: "fixed",
+                      width: "3.2rem",
+                      height: "3.2rem",
+                      top: "1rem",
+                      left: "1rem",
+                      zIndex: 2,
+                      border: `solid 0.2rem ${palette.main_primary_dark}`,
+                      borderRadius: "50%",
+                    })}
+                  >
+                    <h4
+                      className={css({
+                        color: palette.main_primary_dark,
+                        alignSelf: "center",
+                        textAlign: "center",
+                        fontSize: "2rem",
+                      })}
+                    >
+                      {index + 1}
+                    </h4>
+                  </GridContainer>
                   <img
                     src={slide}
                     alt=""
@@ -945,7 +968,20 @@ function Carousel({
                     })}
                   />
                 </Container>
-              </div>
+                <FlexColumnContainer>
+                  <FlexCenterContainer>
+                    <FlexRowContainer className={css({ gap: "2.4rem" })}>
+                      <p>Deco units:</p>
+                      <RateFilledStarLogo
+                        height={40}
+                        width={40}
+                        fill={palette.main_primary_dark}
+                      />
+                      <p className={css({ fontSize: "4rem" })}>3</p>
+                    </FlexRowContainer>
+                  </FlexCenterContainer>
+                </FlexColumnContainer>
+              </GridContainer>
             );
           })}
           <button
@@ -961,7 +997,7 @@ function Carousel({
               top: "50%",
             })}
             onClick={() =>
-              rotate("right", length, setMedia, isCarousel, setCarousel)
+              rotate("left", length, setMedia, isCarousel, setCarousel)
             }
           >
             <FlexCenterContainer
@@ -1215,10 +1251,12 @@ function LogoTitleBlock({
   Logo,
   title,
   setMediaByStep,
+  isLanguage,
 }: {
   Logo: EmotionJSX.Element;
-  title: string | ReactNode;
+  title: string | React.ReactNode;
   setMediaByStep: (param: number, step: number) => number;
+  isLanguage: string;
 }): EmotionJSX.Element {
   return (
     <LogoHeaderContainer>
@@ -1227,13 +1265,15 @@ function LogoTitleBlock({
         height={6.2}
         color={palette.background_main}
         style={{
-          // position: 'absolute',
           borderRadius: "50%",
           border: `solid 0.2rem ${palette.main_primary_dark}`,
         }}
       />
       <FlexRowContainer
-        className={css({ gap: "3.2rem", transform: "translateX(-5.1rem)" })}
+        className={css({
+          gap: "3.2rem",
+          transform: `translateX(${isLanguage === "hb" ? "" : "-"}5.1rem)`,
+        })}
       >
         {Logo}
         <LogoHeaderTitle

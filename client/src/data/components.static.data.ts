@@ -54,6 +54,7 @@ import {
   OrderLogo,
 } from "components";
 import {
+  ICarouselParams,
   IFooterContacts,
   IInfoBlock,
   IInnerContent,
@@ -206,6 +207,18 @@ export const galleryData = () => {
     setCarouselState(isCarouselState + 1);
   };
 
+  const logoParams = { width: 40, height: 40 };
+
+  const setCarouselParams = (slidesArray: string[]): ICarouselParams => {
+    return {
+      slides: slidesArray,
+      slideWidth: 24,
+      sliderColumnGap: 4,
+      length: slidesArray.length,
+      rotate,
+    };
+  };
+
   const boys = [boy1, boy2, boy3, boy4, boy5, boy6, boy7];
   const girls = [girl1, girl2, girl3, girl4, girl5, girl6, girl7, girl8, girl9];
   const classics = [
@@ -234,5 +247,14 @@ export const galleryData = () => {
     fruit8,
     fruit9,
   ];
-  return { boys, girls, fruits, classics, carouselInitialStateData, rotate };
+  return {
+    boys,
+    girls,
+    fruits,
+    classics,
+    carouselInitialStateData,
+    logoParams,
+    setCarouselParams,
+    rotate,
+  };
 };

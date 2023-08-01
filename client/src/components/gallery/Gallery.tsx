@@ -8,7 +8,7 @@ import {
   LogoTitleBlock,
   Carousel,
 } from "components";
-import { IAppBox, ICarouselParams } from "interfaces";
+import { IAppBox } from "interfaces";
 import { container, css, palette } from "styles";
 import { galleryData } from "data/components.static.data";
 // import { useState } from "react";
@@ -16,19 +16,8 @@ import { galleryData } from "data/components.static.data";
 export function Gallery({ appBox }: { appBox: IAppBox }) {
   const { setMediaByStep, setMedia, isLanguage } = appBox;
 
-  const { boys, girls, fruits, classics, rotate } = galleryData();
-
-  const logoParams = { width: 40, height: 40 };
-
-  const setCarouselParams = (slidesArray: string[]): ICarouselParams => {
-    return {
-      slides: slidesArray,
-      slideWidth: 24,
-      sliderColumnGap: 4,
-      length: slidesArray.length,
-      rotate,
-    };
-  };
+  const { boys, girls, fruits, classics, logoParams, setCarouselParams } =
+    galleryData();
 
   return (
     <div
@@ -52,6 +41,7 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
               Logo={BoyLogo(logoParams)}
               title={"for boys"}
               setMediaByStep={setMediaByStep}
+              isLanguage={isLanguage}
             />
             <Carousel
               carouselParams={setCarouselParams(boys)}
@@ -65,6 +55,7 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
               Logo={GirlLogo(logoParams)}
               title={"for girls"}
               setMediaByStep={setMediaByStep}
+              isLanguage={isLanguage}
             />
             <Carousel
               carouselParams={setCarouselParams(girls)}
@@ -77,6 +68,7 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
               Logo={FruitsLogo(logoParams)}
               title={"fruits"}
               setMediaByStep={setMediaByStep}
+              isLanguage={isLanguage}
             />
             <Carousel
               carouselParams={setCarouselParams(fruits)}
@@ -89,6 +81,7 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
               Logo={ClassicLogo(logoParams)}
               title={"classic"}
               setMediaByStep={setMediaByStep}
+              isLanguage={isLanguage}
             />
             <Carousel
               carouselParams={setCarouselParams(classics)}
