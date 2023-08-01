@@ -5,9 +5,9 @@
   "main": "src/server.ts",
   "scripts": {
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q src/server.ts\"",
-    "push": "cross-env-shell \"git push $GIT_SSH",
     "start": "node src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "push": "cross-env-shell \"git push $GIT_SSH"
   },
   "keywords": [],
   "repository": {
@@ -24,12 +24,20 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-typescript": "^7.22.5",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.3",
     "@types/node": "^20.4.2",
+    "@types/supertest": "^2.0.12",
+    "babel-jest": "^29.6.2",
     "concurrently": "^8.2.0",
+    "jest": "^29.6.2",
     "nodemon": "^3.0.1",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.1",
     "typescript": "^5.1.6"
   }
-  
 }
