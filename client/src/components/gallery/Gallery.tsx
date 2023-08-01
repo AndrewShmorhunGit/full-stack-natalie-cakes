@@ -6,12 +6,12 @@ import {
   GirlLogo,
   MainHeader,
   LogoTitleBlock,
-  Carousel,
 } from "components";
 import { IAppBox } from "interfaces";
-import { container, css, palette } from "styles";
+import { container, css } from "styles";
 import { galleryData } from "data/components.static.data";
-// import { useState } from "react";
+import { Carousel } from "./Components";
+import { GallerySection } from "./Styled";
 
 export function Gallery({ appBox }: { appBox: IAppBox }) {
   const { setMediaByStep, setMedia, isLanguage } = appBox;
@@ -20,12 +20,7 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
     galleryData();
 
   return (
-    <div
-      className={css({
-        borderTop: `0.4rem solid ${palette.main_primary_dark}`,
-        backgroundColor: palette.background_third,
-      })}
-    >
+    <GallerySection>
       <Container className={css({ ...container })}>
         <MainHeader
           className={css({
@@ -35,7 +30,7 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
         >
           {`decoration gallery`}
         </MainHeader>
-        <div>
+        <Container>
           <Container>
             <LogoTitleBlock
               Logo={BoyLogo(logoParams)}
@@ -63,7 +58,7 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
               setMedia={setMedia}
             />
           </Container>
-          <div>
+          <Container>
             <LogoTitleBlock
               Logo={FruitsLogo(logoParams)}
               title={"fruits"}
@@ -75,8 +70,8 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
               isLanguage={isLanguage}
               setMedia={setMedia}
             />
-          </div>
-          <div>
+          </Container>
+          <Container>
             <LogoTitleBlock
               Logo={ClassicLogo(logoParams)}
               title={"classic"}
@@ -88,9 +83,9 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
               isLanguage={isLanguage}
               setMedia={setMedia}
             />
-          </div>
-        </div>
+          </Container>
+        </Container>
       </Container>
-    </div>
+    </GallerySection>
   );
 }

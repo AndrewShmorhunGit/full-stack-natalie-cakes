@@ -2,47 +2,6 @@
 import {
   // App
   AppContainer,
-  // Navigation
-  NavigationSection,
-  NavBurger,
-  NavButtonsContainer,
-  // Hero
-  HeroSection,
-  HeroBackDropFilterContainer,
-  HeroTagLine,
-  MainHeader,
-  HeroSelectorDecoContainer,
-  // Information
-  InformationSection,
-  InformationImportantContainer,
-  InfoContainer,
-  InfoSubHeader,
-  InfoHeader,
-  InfoDecoLine,
-  InfoImportantTitle,
-  InfoBlock,
-  InfoParagraph,
-  InfoLogoContainer,
-  // Menu
-  MenuSection,
-  MenuCategoryContainer,
-  MenuCategoryHeader,
-  MenuPositionContainer,
-  MenuPositionHeader,
-  PositionVariantContainer,
-  RateAndTasteContainer,
-  GetRateStars,
-  UpDownArrow,
-  // Gallery
-  Carousel,
-  // Footer
-  FooterSection,
-  FooterParagraph,
-  FooterHeader,
-  IconAndTextFooterContacts,
-  // Modal
-  ModalBackgroundContainer,
-  ModalContentContainer,
   // Styled and Custom Reusable Components
   Button,
   Container,
@@ -56,6 +15,7 @@ import {
   LogoHeaderContainer,
   LogoHeaderTitle,
   LogoTitleBlock,
+  MainHeader,
   MainLogoText,
   DecoContainer,
 } from "./lib/StyledComponents";
@@ -149,47 +109,6 @@ export {
   // Styled Components
   // App
   AppContainer,
-  // Navigation
-  NavigationSection,
-  NavBurger,
-  NavButtonsContainer,
-  // Hero
-  HeroSection,
-  HeroBackDropFilterContainer,
-  HeroTagLine,
-  MainHeader,
-  HeroSelectorDecoContainer,
-  // Information
-  InformationSection,
-  InformationImportantContainer,
-  InfoContainer,
-  InfoSubHeader,
-  InfoHeader,
-  InfoParagraph,
-  InfoImportantTitle,
-  InfoBlock,
-  InfoLogoContainer,
-  InfoDecoLine,
-  // Menu
-  MenuSection,
-  MenuCategoryContainer,
-  MenuCategoryHeader,
-  MenuPositionContainer,
-  MenuPositionHeader,
-  PositionVariantContainer,
-  RateAndTasteContainer,
-  GetRateStars,
-  UpDownArrow,
-  // Gallery
-  Carousel,
-  // Footer
-  FooterSection,
-  FooterParagraph,
-  FooterHeader,
-  IconAndTextFooterContacts,
-  // Modal
-  ModalBackgroundContainer,
-  ModalContentContainer,
   // Styled and Custom Reusable Components
   Button,
   Container,
@@ -203,6 +122,7 @@ export {
   LogoHeaderContainer,
   LogoHeaderTitle,
   LogoTitleBlock,
+  MainHeader,
   MainLogoText,
   DecoContainer,
 };

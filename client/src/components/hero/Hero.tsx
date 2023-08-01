@@ -1,9 +1,7 @@
 // Components
+import { HeroSelectorDecoContainer } from "./Components";
+import { HeroSection, HeroBackDropFilterContainer } from "./Styled";
 import {
-  HeroBackDropFilterContainer,
-  HeroSection,
-  HeroSelectorDecoContainer,
-  // HeroTagLine,
   MainHeader,
   Container,
   DecoContainer,

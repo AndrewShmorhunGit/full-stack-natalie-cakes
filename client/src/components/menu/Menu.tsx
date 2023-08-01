@@ -1,4 +1,14 @@
 // Components
+import { UpDownArrow, GetRateStars } from "./Components";
+import {
+  MenuSection,
+  MenuCategoryContainer,
+  MenuCategoryHeader,
+  MenuPositionContainer,
+  MenuPositionHeader,
+  RateAndTasteContainer,
+  PositionVariantContainer,
+} from "./Styled";
 import {
   IsraeliShekel,
   PersonsLogo,
@@ -7,16 +17,7 @@ import {
   FlexCenterContainer,
   FlexColumnContainer,
   FlexRowContainer,
-  GetRateStars,
-  MenuCategoryHeader,
   Container,
-  MenuPositionContainer,
-  MenuPositionHeader,
-  PositionVariantContainer,
-  MenuSection,
-  RateAndTasteContainer,
-  UpDownArrow,
-  MenuCategoryContainer,
   MainHeader,
   HeroBirthdayCakesLogo,
   HeroCakesAndPiesLogo,

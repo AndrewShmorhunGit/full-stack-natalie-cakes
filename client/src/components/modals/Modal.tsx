@@ -1,12 +1,11 @@
 // Components
+import { NavButtonsContainer } from "components/navigation/Components";
+import { InfoHeader } from "components/information/Styled";
 import {
   Container,
   FlexCenterContainer,
   FlexColumnContainer,
-  InfoHeader,
-  NavButtonsContainer,
   CloseLogo,
-  ModalContentContainer,
 } from "components";
 // Styles
 import { css, palette } from "styles";
@@ -17,6 +16,7 @@ import { useClickOutside } from "hooks/useClickOutside";
 import { useRef } from "react";
 // Helpers
 import { setFlag } from "utils/functions";
+import { ModalContentContainer } from "./Styled";
 
 function Modal({ appBox }: { appBox: IAppBox }) {
   const {
@@ -46,7 +46,6 @@ function Modal({ appBox }: { appBox: IAppBox }) {
   const burger = "burger";
   const test = "test";
   const call = "call";
-  // const menuItem = "menuItem";
 
   const modals: IModalSettings = {
     none: {
