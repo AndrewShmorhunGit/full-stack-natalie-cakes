@@ -1,33 +1,29 @@
-interface IMenuItemTextContent {
-  itemName: string;
-  description: string;
-  tasteAccent: string;
-}
+import { MenuItem } from "../data/text/menu.content";
 
 export interface IMenuContent {
   moussesCakes: {
     name: string;
-    chocolatePassionFruit: IMenuItemTextContent;
-    strawberriesWithTops: IMenuItemTextContent;
-    chocolateCherry: IMenuItemTextContent;
-    berryYogurt: IMenuItemTextContent;
+    chocolatePassionFruit: MenuItem;
+    strawberriesWithTops: MenuItem;
+    chocolateCherry: MenuItem;
+    berryYogurt: MenuItem;
   };
   biscuitCakes: {
     name: string;
-    berryVanilla: IMenuItemTextContent;
-    chocolateCaramel: IMenuItemTextContent;
-    chocolateRaspberry: IMenuItemTextContent;
-    lemonBlueberry: IMenuItemTextContent;
+    berryVanilla: MenuItem;
+    chocolateCaramel: MenuItem;
+    chocolateRaspberry: MenuItem;
+    lemonBlueberry: MenuItem;
   };
   classicCakes: {
     name: string;
-    napoleon: IMenuItemTextContent;
-    honeyCake: IMenuItemTextContent;
+    napoleon: MenuItem;
+    honeyCake: MenuItem;
   };
   cheesecakes: {
     name: string;
-    cheesecake: IMenuItemTextContent;
-    cheesecakeCaramel: IMenuItemTextContent;
+    cheesecake: MenuItem;
+    cheesecakeCaramel: MenuItem;
   };
 }
 

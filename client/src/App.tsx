@@ -10,7 +10,6 @@ import {
   Navigation,
   AppContainer,
 } from "components";
-
 // Styles
 import "./styles/App.css";
 // Interfaces

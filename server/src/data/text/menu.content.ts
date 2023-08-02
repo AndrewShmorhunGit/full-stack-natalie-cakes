@@ -1,226 +1,155 @@
 import { IMenuContent } from "../../interfaces/IContents";
 
+export class MenuItem {
+  constructor(name: string, accent: string) {
+    return {
+      itemName: name,
+      description: `${name} with ${accent} taste`,
+      tasteAccent: accent,
+    };
+  }
+}
+
 export const menuContentEn: IMenuContent = {
   moussesCakes: {
     name: "mousse cakes",
-    chocolatePassionFruit: {
-      itemName: "chocolate - passion fruit",
-      description: "will be created from description function",
-      tasteAccent: "chocolate with exotic sourness",
-    },
-    strawberriesWithTops: {
-      itemName: "strawberries with tops",
-      description: `will be created from description function`,
-      tasteAccent: "strawberry, top flavor, vanilla",
-    },
-    chocolateCherry: {
-      itemName: "chocolate - cherry",
-      description: `will be created from description function`,
-      tasteAccent: "chocolate, cherry, Tonka beans",
-    },
-    berryYogurt: {
-      itemName: "berry - yogurt",
-      description: `will be created from description function`,
-      tasteAccent: "yogurt with berry sour",
-    },
+    chocolatePassionFruit: new MenuItem(
+      "chocolate - passion fruit",
+      "chocolate with exotic sourness"
+    ),
+    strawberriesWithTops: new MenuItem(
+      "strawberries with tops",
+      "strawberry, top flavor, vanilla"
+    ),
+    chocolateCherry: new MenuItem(
+      "chocolate - cherry",
+      "chocolate, cherry, Tonka beans"
+    ),
+    berryYogurt: new MenuItem("berry - yogurt", "yogurt with berry sour"),
   },
   biscuitCakes: {
     name: "biscuit cakes",
-    berryVanilla: {
-      itemName: "berry - vanilla",
-      description: `will be created from description function`,
-      tasteAccent: "black currant, raspberry, top taste",
-    },
-    chocolateCaramel: {
-      itemName: "chocolate - caramel",
-      description: `will be created from description function`,
-      tasteAccent: "chocolate, caramel, salt",
-    },
-    chocolateRaspberry: {
-      itemName: "chocolate - raspberry",
-      description: `will be created from description function`,
-      tasteAccent: "chocolate, raspberry",
-    },
-    lemonBlueberry: {
-      itemName: "lemon - blueberry",
-      description: `will be created from description function`,
-      tasteAccent: "lemon , blueberry, top taste",
-    },
+    berryVanilla: new MenuItem(
+      "berry - vanilla",
+      "black currant, raspberry, top taste"
+    ),
+    chocolateCaramel: new MenuItem(
+      "chocolate - caramel",
+      "chocolate, caramel, salt"
+    ),
+    chocolateRaspberry: new MenuItem(
+      "chocolate - raspberry",
+      "chocolate, raspberry"
+    ),
+    lemonBlueberry: new MenuItem(
+      "lemon - blueberry",
+      "lemon , blueberry, top taste"
+    ),
   },
   classicCakes: {
     name: "classic cakes",
-    napoleon: {
-      itemName: "napoleon",
-      description: `will be created from description function`,
-      tasteAccent: "top taste, the taste of childhood, vanilla",
-    },
-    honeyCake: {
-      itemName: "honey cake",
-      description: `will be created from description function`,
-      tasteAccent: "sour cream taste, honey",
-    },
+    napoleon: new MenuItem(
+      "napoleon",
+      "top taste, the taste of childhood, vanilla"
+    ),
+    honeyCake: new MenuItem("honey cake", "sour cream taste, honey"),
   },
   cheesecakes: {
     name: "cheesecakes",
-    cheesecake: {
-      itemName: "cheesecake",
-      description: `will be created from description function`,
-      tasteAccent: "top taste",
-    },
-    cheesecakeCaramel: {
-      itemName: "cheesecake - caramel",
-      description: `will be created from description function`,
-      tasteAccent: "top taste, caramel",
-    },
+    cheesecake: new MenuItem("cheesecake", "top taste"),
+    cheesecakeCaramel: new MenuItem(
+      "cheesecake - caramel",
+      "top taste, caramel"
+    ),
   },
 };
 
 export const menuContentRu: IMenuContent = {
   moussesCakes: {
     name: "муссовые торты",
-    chocolatePassionFruit: {
-      itemName: "шоколад - маракуя",
-      description: "will be created from description function",
-      tasteAccent: "шоколад с экзотической кислинкой",
-    },
-    strawberriesWithTops: {
-      itemName: "клубника с ботвой",
-      description: `will be created from description function`,
-      tasteAccent: "клубника, вкус ботвы, ваниль",
-    },
-    chocolateCherry: {
-      itemName: "шоколад - вишня",
-      description: `will be created from description function`,
-      tasteAccent: "шоколад, вишня, бобы тонка",
-    },
-    berryYogurt: {
-      itemName: "ягоды - йогурт",
-      description: `will be created from description function`,
-      tasteAccent: "йогурт с ягодной кислинкой",
-    },
+    chocolatePassionFruit: new MenuItem(
+      "шоколад - маракуя",
+      "шоколад с экзотической кислинкой"
+    ),
+    strawberriesWithTops: new MenuItem(
+      "клубника с ботвой",
+      "клубника, вкус ботвы, ваниль"
+    ),
+    chocolateCherry: new MenuItem(
+      "шоколад - вишня",
+      "шоколад, вишня, бобы тонка"
+    ),
+    berryYogurt: new MenuItem("ягоды - йогурт", "йогурт с ягодной кислинкой"),
   },
   biscuitCakes: {
     name: "бисквитные торты",
-    berryVanilla: {
-      itemName: "ягодный - ванильный",
-      description: `will be created from description function`,
-      tasteAccent: "черная смородина, малина, сливочный привкус",
-    },
-    chocolateCaramel: {
-      itemName: "шоколад - карамель",
-      description: `will be created from description function`,
-      tasteAccent: "шоколад, карамель, соль",
-    },
-    chocolateRaspberry: {
-      itemName: "шоколад - малина",
-      description: `will be created from description function`,
-      tasteAccent: "шоколад, малина",
-    },
-    lemonBlueberry: {
-      itemName: "лимон - черника",
-      description: `will be created from description function`,
-      tasteAccent: "лимон, черника, сливочный привкус",
-    },
+    berryVanilla: new MenuItem(
+      "ягодный - ванильный",
+      "черная смородина, малина, сливочный привкус"
+    ),
+    chocolateCaramel: new MenuItem(
+      "шоколад - карамель",
+      "шоколад, карамель, соль"
+    ),
+    chocolateRaspberry: new MenuItem("шоколад - малина", "шоколад, малина"),
+    lemonBlueberry: new MenuItem(
+      "лимон - черника",
+      "лимон, черника, сливочный привкус"
+    ),
   },
   classicCakes: {
     name: "классические торты",
-    napoleon: {
-      itemName: "наполеон",
-      description: `will be created from description function`,
-      tasteAccent: "сливочный привкус, вкус детства, ваниль",
-    },
-    honeyCake: {
-      itemName: "медовик",
-      description: `will be created from description function`,
-      tasteAccent: "вкус сметаны, мед",
-    },
+    napoleon: new MenuItem(
+      "наполеон",
+      "сливочный привкус, вкус детства, ваниль"
+    ),
+    honeyCake: new MenuItem("медовик", "вкус сметаны, мед"),
   },
   cheesecakes: {
     name: "чизкейки",
-    cheesecake: {
-      itemName: "чизкейк",
-      description: `will be created from description function`,
-      tasteAccent: "сливочный привкус",
-    },
-    cheesecakeCaramel: {
-      itemName: "карамельный чизкейк",
-      description: `will be created from description function`,
-      tasteAccent: "сливочный привкус, карамель",
-    },
+    cheesecake: new MenuItem("чизкейк", "сливочный привкус"),
+    cheesecakeCaramel: new MenuItem(
+      "карамельный чизкейк",
+      "сливочный привкус, карамель"
+    ),
   },
 };
 
 export const menuContentHb: IMenuContent = {
   moussesCakes: {
     name: "עוגות מוס",
-    chocolatePassionFruit: {
-      itemName: "שוקולד - פסיפלורה",
-      description: "will be created from description function",
-      tasteAccent: "שוקולד עם חמיצות אקזוטית",
-    },
-    strawberriesWithTops: {
-      itemName: "תותים עם עליוניות",
-      description: `will be created from description function`,
-      tasteAccent: "תות, טעם עליון, וניל",
-    },
-    chocolateCherry: {
-      itemName: "שוקולד - דובדבן",
-      description: `will be created from description function`,
-      tasteAccent: "וקולד, דובדבן, שעועית טונקה",
-    },
-    berryYogurt: {
-      itemName: "ברי - יוגורט",
-      description: `will be created from description function`,
-      tasteAccent: "יוגורט עם חמוץ פירות יער",
-    },
+    chocolatePassionFruit: new MenuItem(
+      "שוקולד - פסיפלורה",
+      "שוקולד עם טעם חמצוצה אקזוטית"
+    ),
+    strawberriesWithTops: new MenuItem(
+      "תותים עם גבעול",
+      "תותים עם טעם הגבעול, וניל"
+    ),
+    chocolateCherry: new MenuItem(
+      "שוקולד - דובדבן",
+      "שוקולד, דובדבן, פולי טונקה"
+    ),
+    berryYogurt: new MenuItem(
+      "חלבונה בפירות יער",
+      "יוגורט עם טעם הפירות החמצוכים"
+    ),
   },
   biscuitCakes: {
-    name: "עוגות ביסקוויטים",
-    berryVanilla: {
-      itemName: "ברי - וניל",
-      description: `will be created from description function`,
-      tasteAccent: "דומדמניות שחורות, פטל, טעם עליון",
-    },
-    chocolateCaramel: {
-      itemName: "שוקולד - קרמל",
-      description: `will be created from description function`,
-      tasteAccent: "שוקולד, קרמל, מלח",
-    },
-    chocolateRaspberry: {
-      itemName: "שוקולד - פטל",
-      description: `will be created from description function`,
-      tasteAccent: "שוקולד, פטל",
-    },
-    lemonBlueberry: {
-      itemName: "לימון - אוכמניות",
-      description: `will be created from description function`,
-      tasteAccent: "לימון, אוכמניות, טעם עליון",
-    },
+    name: "עוגות ביסקוויט",
+    berryVanilla: new MenuItem("פירות יער ווניל", "שסקה שחורה, פטל, טעם חמאה"),
+    chocolateCaramel: new MenuItem("שוקולד - קרמל", "שוקולד, קרמל, מלח"),
+    chocolateRaspberry: new MenuItem("שוקולד - פטל", "שוקולד, פטל"),
+    lemonBlueberry: new MenuItem("לימון - פטל", "לימון, פטל, טעם חמאה"),
   },
   classicCakes: {
     name: "עוגות קלאסיות",
-    napoleon: {
-      itemName: "נפוליאון",
-      description: `ייווצר מפונקציית תיאור`,
-      tasteAccent: "טעם עליון, טעם ילדות, וניל",
-    },
-    honeyCake: {
-      itemName: "עוגת דבש",
-      description: `will be created from description function`,
-      tasteAccent: "טעם שמנת חמוצה, דבש מתוק",
-    },
+    napoleon: new MenuItem("נפוליאון", "טעם חמאה, טעם ילדות, וניל"),
+    honeyCake: new MenuItem("מדובן", "טעם חמאה, דבש"),
   },
   cheesecakes: {
-    name: "עוגות גבינה",
-    cheesecake: {
-      itemName: "עוגת גבינה",
-      description: `will be created from description function`,
-      tasteAccent: "טעם עליון",
-    },
-    cheesecakeCaramel: {
-      itemName: "עוגת גבינה - קרמל",
-      description: `will be created from description function`,
-      tasteAccent: "טעם עליון, קרמל",
-    },
+    name: "גביניות",
+    cheesecake: new MenuItem("גבינייה", "טעם חמאה"),
+    cheesecakeCaramel: new MenuItem("גבינייה קרמל", "טעם חמאה, קרמל"),
   },
 };
