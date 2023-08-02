@@ -14,7 +14,7 @@ import { Carousel } from "./Components";
 import { GallerySection } from "./Styled";
 
 export function Gallery({ appBox }: { appBox: IAppBox }) {
-  const { setMediaByStep, setMedia, isLanguage } = appBox;
+  const { setMediaByStep, setMedia, isLanguage, setModal } = appBox;
 
   const { boys, girls, fruits, classics, logoParams, setCarouselParams } =
     galleryData();
@@ -40,8 +40,7 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
             />
             <Carousel
               carouselParams={setCarouselParams(boys)}
-              isLanguage={isLanguage}
-              setMedia={setMedia}
+              appParams={{ setMedia, isLanguage, setModal }}
             />
           </Container>
 
@@ -54,8 +53,7 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
             />
             <Carousel
               carouselParams={setCarouselParams(girls)}
-              isLanguage={isLanguage}
-              setMedia={setMedia}
+              appParams={{ setMedia, isLanguage, setModal }}
             />
           </Container>
           <Container>
@@ -67,8 +65,7 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
             />
             <Carousel
               carouselParams={setCarouselParams(fruits)}
-              isLanguage={isLanguage}
-              setMedia={setMedia}
+              appParams={{ setMedia, isLanguage, setModal }}
             />
           </Container>
           <Container>
@@ -80,8 +77,7 @@ export function Gallery({ appBox }: { appBox: IAppBox }) {
             />
             <Carousel
               carouselParams={setCarouselParams(classics)}
-              isLanguage={isLanguage}
-              setMedia={setMedia}
+              appParams={{ setMedia, isLanguage, setModal }}
             />
           </Container>
         </Container>

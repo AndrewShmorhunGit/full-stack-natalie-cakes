@@ -9,22 +9,25 @@ import {
 import { ArrowDownLogo, RateFilledStarLogo } from "components/logos/Logos";
 import { ICarouselParams, ISetMedia } from "interfaces";
 import { palette, appShadows, css } from "styles";
+import { getGalleryModalState } from "utils/functions";
 
 export function Carousel({
   carouselParams,
-  setMedia,
-  isLanguage,
+  appParams,
 }: {
   carouselParams: ICarouselParams;
-  setMedia: ISetMedia;
-  isLanguage: string;
+  appParams: {
+    setMedia: ISetMedia;
+    isLanguage: string;
+    setModal: React.Dispatch<React.SetStateAction<string>>;
+  };
 }) {
   const { slides, slideWidth, sliderColumnGap, length, rotate } =
     carouselParams;
 
   const [isCarousel, setCarousel] = React.useState(0);
 
-  const slidesOnScreen = +setMedia(3, 2, 1);
+  const slidesOnScreen = +appParams.setMedia(3, 2, 1);
   const opacityCondition = (index: number) =>
     index < slidesOnScreen + isCarousel && index >= isCarousel;
   return (
@@ -60,7 +63,13 @@ export function Carousel({
               top: "50%",
             })}
             onClick={() =>
-              rotate("right", length, setMedia, isCarousel, setCarousel)
+              rotate(
+                "right",
+                length,
+                appParams.setMedia,
+                isCarousel,
+                setCarousel
+              )
             }
           >
             <FlexCenterContainer
@@ -85,11 +94,13 @@ export function Carousel({
                   borderRadius: "1.2rem",
                   boxShadow: appShadows.button,
                   overflow: "hidden",
+                  zIndex: opacityCondition(index) ? 1 : -1,
                   opacity: opacityCondition(index) ? 1 : 0,
-                  transform: `translateX(${isLanguage === "hb" ? "" : "-"}${
-                    (slideWidth + sliderColumnGap) * isCarousel
-                  }rem)`,
+                  transform: `translateX(${
+                    appParams.isLanguage === "hb" ? "" : "-"
+                  }${(slideWidth + sliderColumnGap) * isCarousel}rem)`,
                 })}
+                onClick={() => appParams.setModal(getGalleryModalState(slide))}
               >
                 <Container
                   className={css({
@@ -162,7 +173,13 @@ export function Carousel({
               top: "50%",
             })}
             onClick={() =>
-              rotate("left", length, setMedia, isCarousel, setCarousel)
+              rotate(
+                "left",
+                length,
+                appParams.setMedia,
+                isCarousel,
+                setCarousel
+              )
             }
           >
             <FlexCenterContainer

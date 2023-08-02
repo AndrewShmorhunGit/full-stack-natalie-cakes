@@ -4,7 +4,7 @@ export class MenuItem {
   constructor(name: string, accent: string) {
     return {
       itemName: name,
-      description: `${name} with ${accent} taste`,
+      description: name,
       tasteAccent: accent,
     };
   }

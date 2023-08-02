@@ -42,12 +42,28 @@ function Modal({ appBox }: { appBox: IAppBox }) {
     };
   }
 
+  const getGalleryModal = (isModal: string): string => {
+    return isModal.includes("boy") ||
+      isModal.includes("girl") ||
+      isModal.includes("fruit") ||
+      isModal.includes("classic")
+      ? isModal
+      : "none";
+  };
+
   const none = "none";
   const burger = "burger";
   const test = "test";
   const call = "call";
+  const gallery = getGalleryModal(isModal);
 
   const modals: IModalSettings = {
+    [gallery]: {
+      state: gallery,
+      condition: isModal !== "none" && isModal === gallery,
+      title: isModal,
+      size: gallery !== "none" ? "large" : "none",
+    },
     none: {
       state: none,
       condition: false,
@@ -159,6 +175,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
                 <h2>Here is your modal!</h2>
               </Container>
             )}
+            {getGalleryModal(isModal) && <div>Boys Modal</div>}
           </FlexColumnContainer>
         </FlexCenterContainer>
       </ModalContentContainer>

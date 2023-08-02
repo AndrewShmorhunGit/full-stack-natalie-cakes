@@ -5,7 +5,7 @@ class MenuItem {
     constructor(name, accent) {
         return {
             itemName: name,
-            description: `${name} with ${accent} taste`,
+            description: name,
             tasteAccent: accent,
         };
     }
