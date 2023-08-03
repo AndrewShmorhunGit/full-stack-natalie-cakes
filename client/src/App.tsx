@@ -17,6 +17,7 @@ import { IAppBox } from "interfaces/IApp";
 // Hooks
 import { useMedia, useLanguage, useHover } from "hooks";
 import { useRef, useState } from "react";
+import { css } from "styles";
 
 export function App() {
   // Set JS Media Queries //
@@ -53,7 +54,10 @@ export function App() {
   ////////////////////////////////////////////////
 
   return (
-    <AppContainer dir={languageSettings.isLanguage === "hb" ? "rtl" : "ltr"}>
+    <AppContainer
+      dir={languageSettings.isLanguage === "hb" ? "rtl" : "ltr"}
+      className={css({ overflowY: `hidden` })}
+    >
       <Navigation appBox={appBox} />
       <Hero appBox={appBox} />
       <Information appBox={appBox} />

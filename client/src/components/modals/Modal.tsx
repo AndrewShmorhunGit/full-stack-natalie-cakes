@@ -8,15 +8,16 @@ import {
   CloseLogo,
 } from "components";
 // Styles
-import { css, palette } from "styles";
+import { appShadows, css, palette } from "styles";
 // Interfaces
 import { IAppBox } from "interfaces";
 // Hooks
 import { useClickOutside } from "hooks/useClickOutside";
 import { useRef } from "react";
 // Helpers
-import { setFlag } from "utils/functions";
+import { getGalleryModalState, setFlag } from "utils/functions";
 import { ModalContentContainer } from "./Styled";
+import { galleryData } from "data/components.static.data";
 
 function Modal({ appBox }: { appBox: IAppBox }) {
   const {
@@ -30,6 +31,20 @@ function Modal({ appBox }: { appBox: IAppBox }) {
     isMedia,
   } = appBox;
 
+  // To gallery static
+  const { boys, girls, fruits, classics } = galleryData();
+  const imagesArray = [...boys, ...girls, ...fruits, ...classics];
+  const images = new Map();
+  imagesArray.forEach((img) => images.set(getGalleryModalState(img), img));
+  const isGalleryModal = (isModal: string): string => {
+    return isModal.includes("boy") ||
+      isModal.includes("girl") ||
+      isModal.includes("fruit") ||
+      isModal.includes("classic")
+      ? isModal
+      : "invalid";
+  };
+
   const refClickOutside = useRef<HTMLDivElement | null>(null);
   useClickOutside(refClickOutside, () => setModal("none"));
 
@@ -42,20 +57,11 @@ function Modal({ appBox }: { appBox: IAppBox }) {
     };
   }
 
-  const getGalleryModal = (isModal: string): string => {
-    return isModal.includes("boy") ||
-      isModal.includes("girl") ||
-      isModal.includes("fruit") ||
-      isModal.includes("classic")
-      ? isModal
-      : "none";
-  };
-
   const none = "none";
   const burger = "burger";
   const test = "test";
   const call = "call";
-  const gallery = getGalleryModal(isModal);
+  const gallery = isGalleryModal(isModal);
 
   const modals: IModalSettings = {
     [gallery]: {
@@ -103,6 +109,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
         inset: 0,
         background: "rgba(0, 0, 0, 0.7)",
         transition: "all 0.5s ease",
+        cursor: "pointer",
         // open/close conditions
         display: isModal === "none" ? "none" : "flex",
         zIndex: modalShow ? 99 : -1,
@@ -130,7 +137,8 @@ function Modal({ appBox }: { appBox: IAppBox }) {
           modalSize === "none" && {
             minWidth: "100%",
             minHeight: "100%",
-          }
+          },
+          { cursor: "auto" }
         )}
       >
         <FlexCenterContainer>
@@ -138,6 +146,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
             className={css({ padding: "8rem 6rem", gap: "6rem" })}
           >
             <InfoHeader>{modalTitle}</InfoHeader>
+
             <Container
               className={css({
                 cursor: "pointer",
@@ -154,6 +163,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
               />
             </Container>
             {/* Content */}
+
             {isModal === burger && (
               <NavButtonsContainer
                 content={content}
@@ -175,7 +185,20 @@ function Modal({ appBox }: { appBox: IAppBox }) {
                 <h2>Here is your modal!</h2>
               </Container>
             )}
-            {getGalleryModal(isModal) && <div>Boys Modal</div>}
+            {isGalleryModal(isModal) === isModal && (
+              <>
+                BoolSheet
+                <img
+                  src={images.get(isModal)}
+                  className={css({
+                    maxWidth: "96rem",
+                    border: `solid 0.2rem ${palette.main_primary_dark}`,
+                    boxShadow: appShadows.button,
+                    borderRadius: "2rem",
+                  })}
+                />
+              </>
+            )}
           </FlexColumnContainer>
         </FlexCenterContainer>
       </ModalContentContainer>

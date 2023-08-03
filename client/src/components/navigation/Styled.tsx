@@ -4,7 +4,7 @@ export const NavigationSection = styled.main({
   ...container,
   position: "fixed",
   top: 0,
-  zIndex: 99,
+  zIndex: 9,
   width: "100vw",
   minWidth: "100dvw",
   background: palette.background_nav_transparent,
