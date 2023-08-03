@@ -54,10 +54,7 @@ export function App() {
   ////////////////////////////////////////////////
 
   return (
-    <AppContainer
-      dir={languageSettings.isLanguage === "hb" ? "rtl" : "ltr"}
-      className={css({ overflowY: `hidden` })}
-    >
+    <AppContainer dir={languageSettings.isLanguage === "hb" ? "rtl" : "ltr"}>
       <Navigation appBox={appBox} />
       <Hero appBox={appBox} />
       <Information appBox={appBox} />

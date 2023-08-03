@@ -187,7 +187,6 @@ function Modal({ appBox }: { appBox: IAppBox }) {
             )}
             {isGalleryModal(isModal) === isModal && (
               <>
-                BoolSheet
                 <img
                   src={images.get(isModal)}
                   className={css({
