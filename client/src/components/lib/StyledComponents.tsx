@@ -157,8 +157,9 @@ const LogoHeaderContainer = styled.div({
   maxHeight: "10rem",
   display: "flex",
   alignItems: "center",
-  borderBottom: `solid .2rem ${palette.main_primary_dark}`,
-  borderTop: `solid .2rem ${palette.main_primary_dark}`,
+  // borderBottom: `solid .2rem ${palette.main_primary_dark}`,
+  // borderTop: `solid .2rem ${palette.main_primary_dark}`,
+  borderRadius: "1.2rem",
   color: palette.text_dark,
   padding: "1.2rem 3.6rem",
   boxShadow: appShadows.button,
@@ -190,10 +191,11 @@ function LogoTitleBlock({
       <DecoContainer
         width={6.2}
         height={6.2}
-        color={palette.background_main}
+        color={palette.background_second}
         style={{
-          borderRadius: "50%",
-          border: `solid 0.2rem ${palette.main_primary_dark}`,
+          borderRadius: "2rem",
+          // border: `solid 0.1rem ${palette.text_dark}`,
+          // boxShadow: appShadows.button,
         }}
       />
       <FlexRowContainer

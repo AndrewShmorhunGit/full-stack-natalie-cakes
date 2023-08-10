@@ -10,8 +10,9 @@ export const MenuCategoryContainer = styled.div({
   width: "100%",
   alignSelf: "center",
   padding: "2rem 3.6rem",
-  borderLeft: `solid 0.2rem ${palette.main_primary_dark}`,
-  borderRight: `solid 0.2rem ${palette.main_primary_dark}`,
+  // borderLeft: `solid 0.2rem ${palette.main_primary_dark}`,
+  // borderRight: `solid 0.2rem ${palette.main_primary_dark}`,
+  borderRadius: "1.2rem",
   backgroundColor: palette.background_second,
 });
 
@@ -24,7 +25,7 @@ export const MenuPositionContainer = styled.div({
   maxWidth: "80rem",
   minWidth: "32rem",
   padding: "2rem",
-  border: `solid .2rem ${palette.main_primary_dark}`,
+  // border: `solid .2rem ${palette.main_primary_dark}`,
   borderRadius: "1.2rem",
   boxShadow: appShadows.button,
   backgroundColor: palette.background_second,

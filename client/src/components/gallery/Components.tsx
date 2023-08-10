@@ -22,14 +22,17 @@ export function Carousel({
     setModal: React.Dispatch<React.SetStateAction<string>>;
   };
 }) {
+  console.log("=== Carousel render ===");
   const { slides, slideWidth, sliderColumnGap, length, rotate } =
     carouselParams;
 
   const [isCarousel, setCarousel] = React.useState(0);
 
   const slidesOnScreen = +appParams.setMedia(3, 2, 1);
-  const opacityCondition = (index: number) =>
-    index < slidesOnScreen + isCarousel && index >= isCarousel;
+  const opacityCondition = (index: number): boolean => {
+    return index < slidesOnScreen + isCarousel && index >= isCarousel;
+  };
+
   return (
     <FlexCenterContainer>
       <GridContainer
@@ -55,8 +58,10 @@ export function Carousel({
               cursor: "pointer",
               width: "5.2rem",
               height: "5.2rem",
-              border: `solid 0.2rem ${palette.main_primary_dark}`,
-              borderRadius: "50%",
+              boxShadow: appShadows.button,
+              border: "none",
+              background: palette.background_second,
+              borderRadius: "1.2rem",
               zIndex: "2",
               position: "absolute",
               left: `-${sliderColumnGap}rem`,
@@ -75,11 +80,7 @@ export function Carousel({
             <FlexCenterContainer
               className={css({ transform: "rotate(90deg)", cursor: "pointer" })}
             >
-              <ArrowDownLogo
-                height={24}
-                width={24}
-                fill={palette.main_primary_dark}
-              />
+              <ArrowDownLogo height={24} width={24} fill={palette.text_dark} />
             </FlexCenterContainer>
           </button>
           {slides.map((slide, index) => {
@@ -93,6 +94,7 @@ export function Carousel({
                   height: "40rem",
                   borderRadius: "1.2rem",
                   boxShadow: appShadows.button,
+                  background: palette.background_second,
                   overflow: "hidden",
                   zIndex: opacityCondition(index) ? 1 : -1,
                   opacity: opacityCondition(index) ? 1 : 0,
@@ -117,13 +119,13 @@ export function Carousel({
                       top: "1rem",
                       left: "1rem",
                       zIndex: 2,
-                      border: `solid 0.2rem ${palette.main_primary_dark}`,
-                      borderRadius: "50%",
+                      // border: `solid 0.2rem ${palette.main_primary_dark}`,
+                      borderRadius: "0.8rem",
                     })}
                   >
                     <h4
                       className={css({
-                        color: palette.main_primary_dark,
+                        color: palette.text_dark,
                         alignSelf: "center",
                         textAlign: "center",
                         fontSize: "2rem",
@@ -147,13 +149,11 @@ export function Carousel({
                 <FlexColumnContainer>
                   <FlexCenterContainer>
                     <FlexRowContainer className={css({ gap: "2.4rem" })}>
-                      <p>Deco units:</p>
                       <RateFilledStarLogo
                         height={40}
                         width={40}
-                        fill={palette.main_primary_dark}
+                        fill={palette.main_primary}
                       />
-                      <p className={css({ fontSize: "4rem" })}>3</p>
                     </FlexRowContainer>
                   </FlexCenterContainer>
                 </FlexColumnContainer>
@@ -165,8 +165,10 @@ export function Carousel({
               cursor: "pointer",
               width: "5.2rem",
               height: "5.2rem",
-              border: `solid 0.2rem ${palette.main_primary_dark}`,
-              borderRadius: "50%",
+              boxShadow: appShadows.button,
+              border: "none",
+              background: palette.background_second,
+              borderRadius: "1.2rem",
               zIndex: "2",
               position: "absolute",
               right: `-${sliderColumnGap}rem`,
@@ -187,11 +189,7 @@ export function Carousel({
                 transform: "rotate(-90deg)",
               })}
             >
-              <ArrowDownLogo
-                height={24}
-                width={24}
-                fill={palette.main_primary_dark}
-              />
+              <ArrowDownLogo height={24} width={24} fill={palette.text_dark} />
             </FlexCenterContainer>
           </button>
         </div>

@@ -13,11 +13,11 @@ import { appShadows, css, palette } from "styles";
 import { IAppBox } from "interfaces";
 // Hooks
 import { useClickOutside } from "hooks/useClickOutside";
-import { useRef } from "react";
 // Helpers
 import { getGalleryModalState, setFlag } from "utils/functions";
 import { ModalContentContainer } from "./Styled";
 import { galleryData } from "data/components.static.data";
+import React from "react";
 
 function Modal({ appBox }: { appBox: IAppBox }) {
   const {
@@ -33,6 +33,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
 
   // To gallery static
   const { boys, girls, fruits, classics } = galleryData();
+
   const imagesArray = [...boys, ...girls, ...fruits, ...classics];
   const images = new Map();
   imagesArray.forEach((img) => images.set(getGalleryModalState(img), img));
@@ -45,7 +46,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
       : "invalid";
   };
 
-  const refClickOutside = useRef<HTMLDivElement | null>(null);
+  const refClickOutside = React.useRef<HTMLDivElement | null>(null);
   useClickOutside(refClickOutside, () => setModal("none"));
 
   interface IModalSettings {
@@ -185,7 +186,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
                 <h2>Here is your modal!</h2>
               </Container>
             )}
-            {isGalleryModal(isModal) === isModal && (
+            {isModal === gallery && (
               <>
                 <img
                   src={images.get(isModal)}

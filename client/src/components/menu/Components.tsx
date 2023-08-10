@@ -11,7 +11,7 @@ import {
   RateEmptyStarLogo,
   ArrowDownLogo,
 } from "components/logos/Logos";
-import { createGrid, palette, css } from "styles";
+import { createGrid, palette, css, appShadows } from "styles";
 
 export function GetRateStars(
   rate: number,
@@ -61,8 +61,8 @@ export function UpDownArrow({
     <RelativeContainer
       className={css({
         cursor: "pointer",
-        transition: "all 1s ease",
-        transform: `rotate(${rotate}turn)`,
+        // transition: "transform 1s ease",
+        // transform: `rotate(${rotate}turn)`,
       })}
     >
       <FlexCenterContainer
@@ -71,26 +71,24 @@ export function UpDownArrow({
           position: "absolute",
           left: "50%",
           top: "50%",
-          transform: "translate(-50%, -50%)",
+          transition: "transform 1s linear",
+          transform: `translate(-50%, -50%) rotate(${rotate}turn)`,
         })}
       >
-        <ArrowDownLogo
-          height={24}
-          width={24}
-          fill={palette.main_primary_dark}
-        />
+        <ArrowDownLogo height={24} width={24} fill={palette.main_primary} />
       </FlexCenterContainer>
       <DecoContainer
         width={circleRadius}
         height={circleRadius}
-        color={palette.background_main}
+        color={palette.background_second}
         style={{
-          borderRadius: "50%",
+          borderRadius: "2.4rem",
           position: "absolute",
           left: "50%",
           top: "50%",
           transform: "translate(-50%, -50%)",
-          border: `solid 0.2rem ${palette.main_primary_dark}`,
+          boxShadow: appShadows.button,
+          // border: `solid 0.2rem ${palette.main_primary_dark}`,
           zIndex: 0,
         }}
       />

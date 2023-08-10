@@ -39,9 +39,9 @@ import { IAppBox } from "interfaces";
 // Data
 import { createMenuData } from "data/menu.data";
 import { contentEmpty } from "content/text/text.content";
-import { loading, toCamelCase } from "utils/functions";
+import { loading } from "utils/functions";
 //  Hooks
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
   const {
@@ -54,21 +54,26 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
   } = appBox;
 
   const menuData = createMenuData(content);
-
+  console.log("==== Menu render ====");
   // Fix types
-  const categories: { [x: string]: boolean } | null =
-    menuData.categories.reduce((total, category) => {
-      total = {
-        ...total,
-        [toCamelCase(category.name)]: false,
-      };
-      return total;
-    }, {});
+  const categories: { [x: string]: boolean } | null = useMemo(() => {
+    return createMenuData(contentEmpty).categories.reduce(
+      (total, _category, index) => {
+        total = {
+          ...total,
+          [`category${index}`]: false,
+        };
+        console.log("==== Menu categories state created ====");
+        return total;
+      },
+      {}
+    );
+  }, [contentEmpty]);
 
   const [isArrow, setIsArrow] = useState({ ...categories });
 
   return (
-    <MenuSection>
+    <MenuSection className={css({ position: "relative" })}>
       <Container
         className={css({
           ...container,
@@ -84,7 +89,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
         </MainHeader>
         {/* {Iteration from menuData object} */}
         {menuData.categories.map((category, index) => {
-          const isArrowProp = toCamelCase(category.name);
+          const isArrowProp = `category${index}`;
           return (
             <FlexColumnContainer
               key={
@@ -134,7 +139,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                   boxShadow: isArrow[isArrowProp] ? appShadows.button : "",
                   cursor: "pointer",
                   fontSize: `${setMediaByStep(4, 0.2)}rem`,
-                  ...createGrid("1fr 100fr", 1),
+                  ...createGrid("1fr 32fr", 1),
                 })}
                 onClick={() =>
                   setIsArrow({
