@@ -35,7 +35,7 @@ import {
   appShadows,
 } from "styles";
 // Interfaces
-import { IAppBox, IMenuCategoryParams } from "interfaces";
+import { IAppBox } from "interfaces";
 // Data
 import { createMenuData } from "data/menu.data";
 import { contentEmpty } from "content/text/text.content";
@@ -45,6 +45,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useAsync } from "hooks/useAsync";
 import { httpGetMenuParams } from "utils/http.requests";
 import { IMenuParams } from "interfaces/IMenu";
+import { defaultMenuParams } from "data/components.static.data";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
   const {
@@ -55,21 +56,15 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
     setMediaByStep,
     setModal,
   } = appBox;
-  const { run, isLoading, isError } = useAsync();
-  console.log("==== Menu render ====");
-  const defaultParams: IMenuCategoryParams = {
-    sizes: ["xs", "s", "m", "l"],
-    persons: [8, 10, 12, 22],
-    weight: [1.2, 1.6, 2.0, 3.3],
-    radius: [180, 200, 220, 260],
-    prices: [110, 140, 175, 280],
-  };
-  const [isMenuParams, setMenuParams] = useState<IMenuParams>({
-    moussesParams: { ...defaultParams },
-    biscuitParams: { ...defaultParams },
-    classicParams: { ...defaultParams },
-    cheesecakesParams: { ...defaultParams },
-  });
+
+  const { run, isError } = useAsync();
+  const [isMenuParams, setMenuParams] =
+    useState<IMenuParams>(defaultMenuParams);
+  useEffect(() => {
+    run(httpGetMenuParams().then((data) => setMenuParams(data)));
+  }, []);
+  const menuData = createMenuData(content, isMenuParams);
+
   // Fix types
   const categories: { [x: string]: boolean } | null = useMemo(() => {
     return createMenuData(contentEmpty, isMenuParams).categories.reduce(
@@ -86,15 +81,11 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
   }, []);
 
   const [isArrow, setIsArrow] = useState({ ...categories });
-  useEffect(() => {
-    run(httpGetMenuParams().then((data) => !isLoading && setMenuParams(data)));
-  }, [run]);
 
-  const menuData = createMenuData(content, isMenuParams);
   return isError ? (
     <FlexCenterContainer>
       <p className={css({ fontSize: "10rem", textAlign: "center" })}>
-        Can not get menu params, I need too implement an Error section!)
+        Can not get menu params, I need too implement an Error section!🛠
       </p>
     </FlexCenterContainer>
   ) : (

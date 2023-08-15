@@ -60,6 +60,7 @@ import {
   IInnerContent,
   ILogos,
   IMedia,
+  IMenuCategoryParams,
   ISelectorParams,
   ISetMedia,
 } from "interfaces";
@@ -174,6 +175,25 @@ export const infoData = (content: IInnerContent, setMedia: ISetMedia) => {
   ];
   return { infoContentData };
 };
+
+// MENU
+
+const defaultParams: IMenuCategoryParams = {
+  sizes: ["xs", "s", "m", "l"],
+  persons: [8, 10, 12, 22],
+  weight: [1.2, 1.6, 2.0, 3.3],
+  radius: [180, 200, 220, 260],
+  prices: [110, 140, 175, 280],
+};
+
+export const defaultMenuParams = {
+  moussesParams: { ...defaultParams },
+  biscuitParams: { ...defaultParams },
+  classicParams: { ...defaultParams },
+  cheesecakesParams: { ...defaultParams },
+};
+
+// GALLERY
 
 export const galleryData = () => {
   const carouselInitialStateData = {
