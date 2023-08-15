@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.menuParams = void 0;
 const priceList = {
-    musses: [110, 140, 175, 280],
+    mousses: [110, 140, 175, 280],
     biscuits: [160, 220, 290, 340],
     classic: [120, 0, 230, 0],
     cheesecakes: [110, 0, 210, 0],
@@ -13,7 +13,7 @@ const defaultParams = {
     persons: [8, 10, 12, 22],
     weight: [1.2, 1.6, 2.0, 3.3],
     radius: [180, 200, 220, 260],
-    prices: priceList.musses,
+    prices: priceList.mousses,
 };
 const biscuitParams = {
     sizes: defaultParams.sizes,
@@ -37,7 +37,7 @@ const cheesecakesParams = {
     prices: priceList.cheesecakes,
 };
 const menuParams = {
-    mussesParams: defaultParams,
+    moussesParams: defaultParams,
     biscuitParams,
     classicParams,
     cheesecakesParams,

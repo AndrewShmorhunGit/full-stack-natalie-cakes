@@ -35,13 +35,16 @@ import {
   appShadows,
 } from "styles";
 // Interfaces
-import { IAppBox } from "interfaces";
+import { IAppBox, IMenuCategoryParams } from "interfaces";
 // Data
 import { createMenuData } from "data/menu.data";
 import { contentEmpty } from "content/text/text.content";
 import { loading } from "utils/functions";
 //  Hooks
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useAsync } from "hooks/useAsync";
+import { httpGetMenuParams } from "utils/http.requests";
+import { IMenuParams } from "interfaces/IMenu";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
   const {
@@ -52,12 +55,24 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
     setMediaByStep,
     setModal,
   } = appBox;
-
-  const menuData = createMenuData(content);
+  const { run, isLoading, isError } = useAsync();
   console.log("==== Menu render ====");
+  const defaultParams: IMenuCategoryParams = {
+    sizes: ["xs", "s", "m", "l"],
+    persons: [8, 10, 12, 22],
+    weight: [1.2, 1.6, 2.0, 3.3],
+    radius: [180, 200, 220, 260],
+    prices: [110, 140, 175, 280],
+  };
+  const [isMenuParams, setMenuParams] = useState<IMenuParams>({
+    moussesParams: { ...defaultParams },
+    biscuitParams: { ...defaultParams },
+    classicParams: { ...defaultParams },
+    cheesecakesParams: { ...defaultParams },
+  });
   // Fix types
   const categories: { [x: string]: boolean } | null = useMemo(() => {
-    return createMenuData(contentEmpty).categories.reduce(
+    return createMenuData(contentEmpty, isMenuParams).categories.reduce(
       (total, _category, index) => {
         total = {
           ...total,
@@ -71,8 +86,18 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
   }, []);
 
   const [isArrow, setIsArrow] = useState({ ...categories });
+  useEffect(() => {
+    run(httpGetMenuParams().then((data) => !isLoading && setMenuParams(data)));
+  }, [run]);
 
-  return (
+  const menuData = createMenuData(content, isMenuParams);
+  return isError ? (
+    <FlexCenterContainer>
+      <p className={css({ fontSize: "10rem", textAlign: "center" })}>
+        Can not get menu params, I need too implement an Error section!)
+      </p>
+    </FlexCenterContainer>
+  ) : (
     <MenuSection className={css({ position: "relative" })}>
       <Container
         className={css({

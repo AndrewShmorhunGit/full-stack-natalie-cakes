@@ -1,5 +1,5 @@
 export interface IMenuParams {
-  mussesParams: IMenuCategoryParams;
+  moussesParams: IMenuCategoryParams;
   biscuitParams: IMenuCategoryParams;
   classicParams: IMenuCategoryParams;
   cheesecakesParams: IMenuCategoryParams;
@@ -13,7 +13,7 @@ export interface IMenuCategoryParams {
   prices: number[];
 }
 export interface IPriceList {
-  musses: number[];
+  mousses: number[];
   biscuits: number[];
   classic: number[];
   cheesecakes: number[];

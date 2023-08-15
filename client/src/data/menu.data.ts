@@ -16,15 +16,17 @@ import {
   cheesecakeCaramel,
 } from "content";
 
-import {
-  createCategoryVariantsArrayData,
-  getCategoryParams,
-} from "./static.settings.data";
+import { createCategoryVariantsArrayData } from "./static.settings.data";
+import { IMenuParams } from "interfaces/IMenu";
 
 const createCategoryVariantsArray = createCategoryVariantsArrayData;
-const { biscuitParams, classicParams, cheesecakesParams } = getCategoryParams();
 
-export function createMenuData(content: IInnerContent) {
+export function createMenuData(
+  content: IInnerContent,
+  menuParams: IMenuParams
+) {
+  const { moussesParams, biscuitParams, classicParams, cheesecakesParams } =
+    menuParams;
   const menuContent = content.menuContent;
   const birthdayCakes = content.heroSelectors.birthdayCake;
   const cakesAndPies = content.heroSelectors.cakesAndPies;
@@ -43,7 +45,7 @@ export function createMenuData(content: IInnerContent) {
             sweetness: 4,
             tasteAccent:
               menuContent.moussesCakes.chocolatePassionFruit.tasteAccent,
-            variants: createCategoryVariantsArray(),
+            variants: createCategoryVariantsArray([0, 0, 0, 0], moussesParams),
           },
           {
             itemName: menuContent.moussesCakes.strawberriesWithTops.itemName,
@@ -54,7 +56,7 @@ export function createMenuData(content: IInnerContent) {
             sweetness: 4,
             tasteAccent:
               menuContent.moussesCakes.strawberriesWithTops.tasteAccent,
-            variants: createCategoryVariantsArray(),
+            variants: createCategoryVariantsArray([0, 0, 0, 0], moussesParams),
           },
           {
             itemName: menuContent.moussesCakes.chocolateCherry.itemName,
@@ -63,7 +65,7 @@ export function createMenuData(content: IInnerContent) {
             sourness: 4,
             sweetness: 2,
             tasteAccent: menuContent.moussesCakes.chocolateCherry.tasteAccent,
-            variants: createCategoryVariantsArray(),
+            variants: createCategoryVariantsArray([0, 0, 0, 0], moussesParams),
           },
           {
             itemName: menuContent.moussesCakes.berryYogurt.itemName,
@@ -72,7 +74,10 @@ export function createMenuData(content: IInnerContent) {
             sourness: 4,
             sweetness: 2,
             tasteAccent: menuContent.moussesCakes.berryYogurt.tasteAccent,
-            variants: createCategoryVariantsArray([10, 20, 15, 20]),
+            variants: createCategoryVariantsArray(
+              [10, 20, 15, 20],
+              moussesParams
+            ),
           },
         ],
       },
