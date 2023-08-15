@@ -1,5 +1,14 @@
 import { palette, styled } from "styles";
 
+export const logoSize = 32;
+const inputHight = 4;
+const paddingTopSize = `${(inputHight - logoSize / 10) / 2}rem`;
+export const inputSpanStyles = {
+  fontWeight: "500",
+  fontSize: "1.2rem",
+  transform: "translateY(-2.8rem)",
+};
+
 export const ModalBackgroundContainer = styled.main({
   position: "fixed",
   maxWidth: "100%",
@@ -32,4 +41,47 @@ export const ModalContentContainer = styled.div({
       background: palette.main_primary_dark,
     },
   },
+});
+
+export const Label = styled.label({
+  cursor: "pointer",
+  paddingTop: paddingTopSize,
+});
+
+export const Input = styled.input({
+  height: `${inputHight}rem`,
+
+  paddingLeft: "0.4rem",
+  border: "none",
+
+  fontWeight: "300",
+  fontSize: "1.8rem",
+  ":focus": {
+    outline: "none",
+  },
+  ":focus ~ span": inputSpanStyles,
+  ":valid ~ span": inputSpanStyles,
+});
+
+export const Placeholder = styled.span({
+  position: "absolute",
+  fontSize: "1.8rem",
+  fontWeight: "300",
+  left: "0.4rem",
+  top: "0.8rem",
+  pointerEvents: "none",
+  transition: "all 0.5s",
+});
+
+export const TextArea = styled.textarea({
+  border: "none",
+  minHeight: `${inputHight}rem`,
+  maxHeight: "8rem",
+  padding: "0.8rem",
+  fontWeight: "300",
+  fontSize: "1.8rem",
+  ":focus": {
+    outline: "none",
+  },
+  ":focus ~ span": inputSpanStyles,
 });

@@ -18,7 +18,7 @@ import { getGalleryModalState, setFlag } from "utils/functions";
 import { ModalContentContainer } from "./Styled";
 import { galleryData } from "data/components.static.data";
 import React from "react";
-import { TakeACall } from "./Components";
+import { CallForm } from "./Components";
 
 function Modal({ appBox }: { appBox: IAppBox }) {
   const {
@@ -174,7 +174,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
                 isLangTransition={isLangTransition}
               />
             )}
-            {isModal === call && <TakeACall setMedia={setMedia} />}
+            {isModal === call && <CallForm setMedia={setMedia} />}
             {isModal === test && (
               <Container>
                 <h2>Here is your modal!</h2>
