@@ -2,7 +2,7 @@ import { ILanguages } from "interfaces/IApp";
 import { IInnerContent } from "interfaces/IContent";
 import { useEffect, useState } from "react";
 import { contentEmpty } from "content/text/text.content";
-import { httpGetContents } from "utils/http.request";
+import { httpGetContent } from "utils/http.requests";
 import { useAsync } from "./useAsync";
 
 interface ILanguageSettings {
@@ -24,7 +24,7 @@ export const useLanguage = (): ILanguageSettings => {
 
   useEffect(() => {
     run(
-      httpGetContents(isLanguage).then((data) => {
+      httpGetContent(isLanguage).then((data) => {
         setContent(contentEmpty);
         setTimeout(() => {
           setContent(data);

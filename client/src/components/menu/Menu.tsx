@@ -68,7 +68,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
       },
       {}
     );
-  }, [contentEmpty]);
+  }, []);
 
   const [isArrow, setIsArrow] = useState({ ...categories });
 

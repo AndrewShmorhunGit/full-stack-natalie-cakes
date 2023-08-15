@@ -1,4 +1,4 @@
-import { IInnerContent } from "../../interfaces/IContents";
+import { IInnerContent } from "../../interfaces/IContent";
 import { menuContentEn, menuContentHb, menuContentRu } from "./menu.content";
 
 const address = "Natalie 23 str, Eilat";

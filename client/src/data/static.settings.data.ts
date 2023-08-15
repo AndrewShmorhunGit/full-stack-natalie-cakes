@@ -1,5 +1,7 @@
 // content/text/text.content.ts static data
 
+import { IMenuCategoryParams, IPriceList } from "interfaces/IMenu";
+
 export const decoHeaderPropsData = {
   width: 620,
   height: 60,
@@ -27,14 +29,6 @@ interface ISizeVariant {
   price: number;
 }
 
-interface ICategoryParams {
-  sizes: string[];
-  persons: number[];
-  weight: number[];
-  radius: number[];
-  prices: number[];
-}
-
 // Price editor function alow us to change all unit size prices
 function editAllPrices(price: number): number {
   const multiplyPrice = 1;
@@ -43,7 +37,7 @@ function editAllPrices(price: number): number {
   return (price * multiplyPrice + addAll) * multiplyTotalPrice;
 }
 
-const priceList = {
+const priceList: IPriceList = {
   musses: [110, 140, 175, 280],
   biscuits: [160, 220, 290, 340],
   classic: [120, 0, 230, 0],
@@ -51,7 +45,7 @@ const priceList = {
 };
 
 // Musses params as a default
-const defaultParams = {
+const defaultParams: IMenuCategoryParams = {
   sizes: ["xs", "s", "m", "l"],
   persons: [8, 10, 12, 22],
   weight: [1.2, 1.6, 2.0, 3.3],
@@ -60,7 +54,7 @@ const defaultParams = {
 };
 
 export function getCategoryParams() {
-  const biscuitParams = {
+  const biscuitParams: IMenuCategoryParams = {
     sizes: defaultParams.sizes,
     persons: [12, 17, 23, 27],
     weight: [1.7, 2.5, 3.4, 3.9],
@@ -68,7 +62,7 @@ export function getCategoryParams() {
     prices: priceList.biscuits,
   };
 
-  const classicParams = {
+  const classicParams: IMenuCategoryParams = {
     sizes: defaultParams.sizes,
     persons: [8, 0, 15, 0],
     weight: [1.2, 0, 2.4, 0],
@@ -76,7 +70,7 @@ export function getCategoryParams() {
     prices: priceList.classic,
   };
 
-  const cheesecakesParams = {
+  const cheesecakesParams: IMenuCategoryParams = {
     sizes: defaultParams.sizes,
     persons: classicParams.persons,
     weight: classicParams.weight,
@@ -90,7 +84,7 @@ export function getCategoryParams() {
 export function createCategoryVariantsArrayData(
   // This array allow us to add or subtract from the categoryParams.price array for each menu unit size
   [xs, s, m, l]: (number | null)[] = [0, 0, 0, 0],
-  categoryParams: ICategoryParams = defaultParams
+  categoryParams: IMenuCategoryParams = defaultParams
 ): ISizeVariant[] {
   function createVariant(arr: string[] | number[]): IVariant {
     return { xs: arr[0], s: arr[1], m: arr[2], l: arr[3] };

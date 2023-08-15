@@ -1,4 +1,4 @@
-import { IMenuContent } from "../../interfaces/IContents";
+import { IMenuContent } from "../../interfaces/IContent";
 
 export class MenuItem {
   constructor(name: string, accent: string) {
