@@ -18,6 +18,7 @@ import { getGalleryModalState, setFlag } from "utils/functions";
 import { ModalContentContainer } from "./Styled";
 import { galleryData } from "data/components.static.data";
 import React from "react";
+import { TakeACall } from "./Components";
 
 function Modal({ appBox }: { appBox: IAppBox }) {
   const {
@@ -27,11 +28,12 @@ function Modal({ appBox }: { appBox: IAppBox }) {
     languages,
     isLanguage,
     isLangTransition,
+    setMedia,
     setLanguage,
     isMedia,
   } = appBox;
 
-  // To gallery static
+  // To gallery modals static
   const { boys, girls, fruits, classics } = galleryData();
 
   const imagesArray = [...boys, ...girls, ...fruits, ...classics];
@@ -54,7 +56,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
       state: string;
       condition: boolean;
       title: string;
-      size: "large" | "middle" | "small" | "none";
+      size: "large" | "middle" | "small" | "none" | string;
     };
   }
 
@@ -86,8 +88,8 @@ function Modal({ appBox }: { appBox: IAppBox }) {
     call: {
       state: call,
       condition: isModal === call,
-      title: "Tell your contacts",
-      size: "large",
+      title: "fill out form",
+      size: `${setMedia("middle", "large")}`,
     },
     test: {
       state: test,
@@ -157,11 +159,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
               })}
               onClick={() => setModal("none")}
             >
-              <CloseLogo
-                height={42}
-                width={42}
-                fill={palette.main_primary_dark}
-              />
+              <CloseLogo height={42} width={42} fill={palette.main_primary} />
             </Container>
             {/* Content */}
 
@@ -176,11 +174,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
                 isLangTransition={isLangTransition}
               />
             )}
-            {isModal === call && (
-              <Container>
-                <h2>Call back info form</h2>
-              </Container>
-            )}
+            {isModal === call && <TakeACall setMedia={setMedia} />}
             {isModal === test && (
               <Container>
                 <h2>Here is your modal!</h2>
@@ -190,6 +184,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
               <>
                 <img
                   src={images.get(isModal)}
+                  alt={isModal}
                   className={css({
                     maxWidth: "96rem",
                     border: `solid 0.2rem ${palette.main_primary_dark}`,

@@ -17,7 +17,7 @@ interface ILanguageSettings {
 }
 
 export const useLanguage = (): ILanguageSettings => {
-  const userLanguage = "ru";
+  const userLanguage = "en";
   const { run, isLoading, isError } = useAsync();
   const [isLanguage, setLanguage] = useState(userLanguage);
   const [isLangTransition, setLangTransition] = useState(false);

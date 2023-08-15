@@ -24,9 +24,9 @@ export interface ILanguages {
 export interface ISetMedia {
   (
     bigParam: string | number,
-    mediumParam?: string | number | undefined,
-    smallParam?: string | number | undefined,
-    minParam?: string | number | undefined
+    mediumParam?: string | number,
+    smallParam?: string | number,
+    minParam?: string | number
   ): string | number;
 }
 

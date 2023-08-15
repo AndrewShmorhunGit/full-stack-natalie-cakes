@@ -51,6 +51,7 @@ import {
   ClassicLogo,
   FruitsLogo,
   StarLogo,
+  UserLogo,
 } from "./logos/Logos";
 import { HeaderDecoLoader, BlockDecoLoader } from "./logos/DecoLogos";
 // Components
@@ -106,6 +107,7 @@ export {
   ClassicLogo,
   FruitsLogo,
   StarLogo,
+  UserLogo,
   // Styled Components
   // App
   AppContainer,

@@ -174,7 +174,9 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                   transition: `max-height ${
                     isArrow[isArrowProp] ? ".4s ease-in" : ".8s ease-out"
                   }`,
-                  columnGap: `${setMediaByStep(4, 0.8)}rem`,
+                  paddingLeft: "0.5rem",
+                  paddingRight: "0.5rem",
+                  columnGap: `${setMediaByStep(2, 0.8)}rem`,
                   rowGap: `${setMediaByStep(4, 0.8)}rem`,
                   ...createGrid(setMedia(2, 1), 1),
                 })}
