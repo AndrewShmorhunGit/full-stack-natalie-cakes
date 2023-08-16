@@ -1,45 +1,24 @@
 "use strict";
+// import { menuParamsData } from "../data/menu/menu.data";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.menuParams = void 0;
-const priceList = {
-    mousses: [110, 140, 175, 280],
-    biscuits: [160, 220, 290, 340],
-    classic: [120, 0, 230, 0],
-    cheesecakes: [110, 0, 210, 0],
-};
-// Musses params as a default
-const defaultParams = {
-    sizes: ["xs", "s", "m", "l"],
-    persons: [8, 10, 12, 22],
-    weight: [1.2, 1.6, 2.0, 3.3],
-    radius: [180, 200, 220, 260],
-    prices: priceList.mousses,
-};
-const biscuitParams = {
-    sizes: defaultParams.sizes,
-    persons: [12, 17, 23, 27],
-    weight: [1.7, 2.5, 3.4, 3.9],
-    radius: [180, 200, 220, 240],
-    prices: priceList.biscuits,
-};
-const classicParams = {
-    sizes: defaultParams.sizes,
-    persons: [8, 0, 15, 0],
-    weight: [1.2, 0, 2.4, 0],
-    radius: defaultParams.radius,
-    prices: priceList.classic,
-};
-const cheesecakesParams = {
-    sizes: defaultParams.sizes,
-    persons: classicParams.persons,
-    weight: classicParams.weight,
-    radius: defaultParams.radius,
-    prices: priceList.cheesecakes,
-};
-const menuParams = {
-    moussesParams: defaultParams,
-    biscuitParams,
-    classicParams,
-    cheesecakesParams,
-};
-exports.menuParams = menuParams;
+exports.getMenuParams = void 0;
+const menu_mongo_1 = __importDefault(require("./menu.mongo"));
+// const menuParams = menuParamsData;
+function getMenuParams() {
+    return __awaiter(this, void 0, void 0, function* () {
+        return yield menu_mongo_1.default.findOne({});
+    });
+}
+exports.getMenuParams = getMenuParams;

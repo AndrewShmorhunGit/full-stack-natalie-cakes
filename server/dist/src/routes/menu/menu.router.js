@@ -8,4 +8,4 @@ const express_1 = __importDefault(require("express"));
 const menu_controller_1 = require("./menu.controller");
 const menuRouter = express_1.default.Router();
 exports.menuRouter = menuRouter;
-menuRouter.get("/menu/params", menu_controller_1.menuController.getMenuParams);
+menuRouter.get("/menu/params", menu_controller_1.httpGetMenuParams);

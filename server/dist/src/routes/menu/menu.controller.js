@@ -1,11 +1,20 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.menuController = void 0;
-const menu_model_1 = require("../../models/menu.model");
-const menuController = {
-    // Fix that [any]
-    getMenuParams(req, res) {
-        return res.status(200).json(menu_model_1.menuParams);
-    },
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
 };
-exports.menuController = menuController;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.httpGetMenuParams = void 0;
+const menu_model_1 = require("../../models/menu.model");
+// Fix that [any]
+function httpGetMenuParams(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return res.status(200).json(yield (0, menu_model_1.getMenuParams)());
+    });
+}
+exports.httpGetMenuParams = httpGetMenuParams;
