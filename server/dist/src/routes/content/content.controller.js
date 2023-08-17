@@ -1,17 +1,32 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.contentController = void 0;
-const content_model_1 = require("../../models/content.model");
-const contentController = {
-    // Fix that [any]
-    getEnContent(req, res) {
-        return res.status(200).json(content_model_1.contents.contentEn);
-    },
-    getRuContent(req, res) {
-        return res.status(200).json(content_model_1.contents.contentRu);
-    },
-    getHbContent(req, res) {
-        return res.status(200).json(content_model_1.contents.contentHb);
-    },
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
 };
-exports.contentController = contentController;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.httpGetContentHb = exports.httpGetContentRu = exports.httpGetContentEn = void 0;
+const content_model_1 = require("../../models/content.model");
+// Fix that [any]
+function httpGetContentEn(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return res.status(200).json(yield (0, content_model_1.getContent)("en"));
+    });
+}
+exports.httpGetContentEn = httpGetContentEn;
+function httpGetContentRu(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return res.status(200).json(yield (0, content_model_1.getContent)("ru"));
+    });
+}
+exports.httpGetContentRu = httpGetContentRu;
+function httpGetContentHb(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return res.status(200).json(yield (0, content_model_1.getContent)("hb"));
+    });
+}
+exports.httpGetContentHb = httpGetContentHb;

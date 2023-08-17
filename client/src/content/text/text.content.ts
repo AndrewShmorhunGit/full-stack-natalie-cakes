@@ -6,11 +6,11 @@ import {
   decoHeaderPropsData,
 } from "data/static.settings.data";
 const decoHeaderProps = decoHeaderPropsData;
-const decoBlockProps = decoBlockPropsData;
-const address = "Natalie 23 str, Eilat";
-const phone = "972-54-283-07777";
-const email = "nataliecakes@gmail.com";
-const rights =
+export const decoBlockProps = decoBlockPropsData;
+export const address = "Natalie 23 str, Eilat";
+export const phone = "972-54-283-07777";
+export const email = "nataliecakes@gmail.com";
+export const rights =
   "Natalie Cakes, all rights reserved. Designed and developed by Andrew Shmorhun. 2023";
 
 export const contentEmpty: IInnerContent = {
@@ -58,12 +58,6 @@ export const contentEmpty: IInnerContent = {
     p2: BlockDecoLoader(decoBlockProps),
   },
   // Footer
-  footerContacts: {
-    address,
-    phone,
-    email,
-  },
-
   footerOther: {
     contacts: HeaderDecoLoader(decoHeaderProps),
     question: HeaderDecoLoader(decoHeaderProps),
@@ -76,7 +70,6 @@ export const contentEmpty: IInnerContent = {
       HeaderDecoLoader(decoHeaderProps),
       HeaderDecoLoader(decoHeaderProps),
     ],
-    rights,
   },
   callBackBtn: HeaderDecoLoader(decoHeaderProps),
   //Menu

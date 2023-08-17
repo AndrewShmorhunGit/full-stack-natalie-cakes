@@ -72,11 +72,6 @@ export interface IInnerContent {
     p2: string;
   };
   // Footer
-  footerContacts: {
-    address: string;
-    phone: string;
-    email: string;
-  };
   footerOther: {
     contacts: string;
     question: string;
@@ -84,7 +79,6 @@ export interface IInnerContent {
     follow: string;
     menu: string;
     cart: string[];
-    rights: string;
   };
   callBackBtn: string;
   // Menu

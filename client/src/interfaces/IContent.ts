@@ -78,11 +78,6 @@ export interface IInnerContent {
     p2: string | ReactNode;
   };
   // Footer
-  footerContacts: {
-    address: string;
-    phone: string;
-    email: string;
-  };
   footerOther: {
     contacts: string | ReactNode;
     question: string | ReactNode;
@@ -90,7 +85,6 @@ export interface IInnerContent {
     follow: string | ReactNode;
     menu: string | ReactNode;
     cart: string[] | ReactNode[];
-    rights: string;
   };
   callBackBtn: string | ReactNode;
   // Menu

@@ -17,7 +17,7 @@ interface ILanguageSettings {
 }
 
 export const useLanguage = (): ILanguageSettings => {
-  const userLanguage = "en";
+  const userLanguage = "ru";
   const { run, isLoading, isError } = useAsync();
   const [isLanguage, setLanguage] = useState(userLanguage);
   const [isLangTransition, setLangTransition] = useState(false);
@@ -27,7 +27,13 @@ export const useLanguage = (): ILanguageSettings => {
       httpGetContent(isLanguage).then((data) => {
         setContent(contentEmpty);
         setTimeout(() => {
-          setContent(data);
+          const checkContent = () => {
+            if (isLanguage === "en") return data.contentEn;
+            if (isLanguage === "ru") return data.contentRu;
+            if (isLanguage === "hb") return data.contentHb;
+            return contentEmpty;
+          };
+          setContent(checkContent());
         }, 1000);
       })
     );

@@ -1,10 +1,14 @@
 import express from "express";
-import { contentController } from "./content.controller";
+import {
+  httpGetContentEn,
+  httpGetContentRu,
+  httpGetContentHb,
+} from "./content.controller";
 
 const contentRouter = express.Router();
 
-contentRouter.get(`/content/language=en`, contentController.getEnContent);
-contentRouter.get(`/content/language=ru`, contentController.getRuContent);
-contentRouter.get(`/content/language=hb`, contentController.getHbContent);
+contentRouter.get(`/content/language=en`, httpGetContentEn);
+contentRouter.get(`/content/language=ru`, httpGetContentRu);
+contentRouter.get(`/content/language=hb`, httpGetContentHb);
 
 export { contentRouter };

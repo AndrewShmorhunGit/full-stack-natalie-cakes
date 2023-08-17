@@ -65,7 +65,7 @@ import {
   ISetMedia,
 } from "interfaces";
 import { palette } from "styles";
-
+import { address, email, phone } from "content/text/text.content";
 // FOOTER
 
 export const footerContactsData = (
@@ -79,15 +79,15 @@ export const footerContactsData = (
 
   return [
     {
-      name: `${content.footerContacts.address}`,
+      name: `${address}`,
       icon: LocationLogo(logoPropsContactsData),
     },
     {
-      name: `${content.footerContacts.phone}`,
+      name: `${phone}`,
       icon: PhoneLogo(logoPropsContactsData),
     },
     {
-      name: `${content.footerContacts.email}`,
+      name: `${email}`,
       icon: EnvelopLogo(logoPropsContactsData),
     },
   ];

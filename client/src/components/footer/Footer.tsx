@@ -18,6 +18,7 @@ import { css, palette, container, createGrid, paddingTopBottom } from "styles";
 import { IAppBox } from "interfaces";
 import { footerContactsData } from "data/components.static.data";
 import { loading } from "utils/functions";
+import { rights } from "content/text/text.content";
 
 export function Footer({ appBox }: { appBox: IAppBox }) {
   const { innerContent: content, isLanguage, setMedia, setModal } = appBox;
@@ -167,7 +168,7 @@ export function Footer({ appBox }: { appBox: IAppBox }) {
             ...paddingTopBottom(setMedia(8, 6, 4), 1.2),
           })}
         >
-          &copy; {content.footerOther.rights}
+          &copy; {rights}
         </p>
       </Container>
     </FooterSection>

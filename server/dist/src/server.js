@@ -26,14 +26,7 @@ function start() {
     return __awaiter(this, void 0, void 0, function* () {
         if (uri === "Error, check .env variables!")
             console.log("env Error, check .env connection");
-        yield mongoose_1.default.connect(uri
-        //   {
-        //   useNewUrlParser: true,
-        //   useFindAndModify: false,
-        //   useCreateIndex: true,
-        //   useUnifiedTopology: true,
-        // }
-        );
+        yield mongoose_1.default.connect(uri);
         server.listen(port, () => {
             console.log(`[server]: Server is running at http://localhost:${port}`);
         });
