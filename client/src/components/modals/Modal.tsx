@@ -7,6 +7,9 @@ import {
   FlexColumnContainer,
   CloseLogo,
 } from "components";
+import { ModalContentContainer } from "./Styled";
+import { CallFormModal } from "./Components";
+import { ErrorBlock } from "components/lib/ErrorSection";
 // Styles
 import { appShadows, css, palette } from "styles";
 // Interfaces
@@ -15,10 +18,8 @@ import { IAppBox } from "interfaces";
 import { useClickOutside } from "hooks/useClickOutside";
 // Helpers
 import { getGalleryModalState, setFlag } from "utils/functions";
-import { ModalContentContainer } from "./Styled";
 import { galleryData } from "data/components.static.data";
 import React from "react";
-import { CallForm } from "./Components";
 
 function Modal({ appBox }: { appBox: IAppBox }) {
   const {
@@ -65,8 +66,15 @@ function Modal({ appBox }: { appBox: IAppBox }) {
   const test = "test";
   const call = "call";
   const gallery = isGalleryModal(isModal);
+  const error = "error";
 
   const modals: IModalSettings = {
+    error: {
+      state: error,
+      condition: isModal === error,
+      title: `Content ${isModal}!`,
+      size: "large",
+    },
     [gallery]: {
       state: gallery,
       condition: isModal !== "none" && isModal === gallery,
@@ -148,7 +156,9 @@ function Modal({ appBox }: { appBox: IAppBox }) {
           <FlexColumnContainer
             className={css({ padding: "8rem 6rem", gap: "6rem" })}
           >
-            <InfoHeader>{modalTitle}</InfoHeader>
+            <InfoHeader className={css(isModal === error && { color: "red" })}>
+              {modalTitle}
+            </InfoHeader>
 
             <Container
               className={css({
@@ -174,7 +184,7 @@ function Modal({ appBox }: { appBox: IAppBox }) {
                 isLangTransition={isLangTransition}
               />
             )}
-            {isModal === call && <CallForm setMedia={setMedia} />}
+            {isModal === call && <CallFormModal setMedia={setMedia} />}
             {isModal === test && (
               <Container>
                 <h2>Here is your modal!</h2>
@@ -194,6 +204,8 @@ function Modal({ appBox }: { appBox: IAppBox }) {
                 />
               </>
             )}
+
+            {isModal === error && <ErrorBlock error={"content"} />}
           </FlexColumnContainer>
         </FlexCenterContainer>
       </ModalContentContainer>

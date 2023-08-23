@@ -65,6 +65,7 @@ import { Information } from "./information/Information";
 import { Modal } from "./modals/Modal";
 import { Navigation } from "./navigation/Navigation";
 import { Menu } from "./menu/Menu";
+import { ErrorSection } from "./lib/ErrorSection";
 
 export {
   // Components
@@ -115,6 +116,7 @@ export {
   // Styled Components
   // App
   AppContainer,
+  ErrorSection,
   // Styled and Custom Reusable Components
   Button,
   Container,

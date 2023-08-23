@@ -1,6 +1,32 @@
-import { IMenuContent } from "interfaces/IContent";
+import { IMenuContent, IMenuContentNew } from "interfaces/IContent";
+
+const emptyContentBlockNew = {
+  itemName: "",
+  description: "",
+  tasteAccent: "",
+  image: "",
+  sourness: 0,
+  sweetness: 0,
+  variants: [],
+};
+
+const emptyCategory = {
+  category: "Loading",
+  group: "",
+  items: [emptyContentBlockNew, emptyContentBlockNew],
+};
+
+export const menuContentEmptyNew: IMenuContentNew[] = [
+  emptyCategory,
+  emptyCategory,
+  emptyCategory,
+  emptyCategory,
+];
+
+// Old menu content style (deprecated)
+
 const emptyContentBlock = {
-  itemName: " ",
+  itemName: "Loading",
   description: "",
   tasteAccent: "",
 };

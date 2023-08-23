@@ -1,8 +1,8 @@
-export interface IMenuParams {
-  moussesParams: IMenuCategoryParams;
-  biscuitParams: IMenuCategoryParams;
-  classicParams: IMenuCategoryParams;
-  cheesecakesParams: IMenuCategoryParams;
+import { ISizeVariant } from "data/static.settings.data";
+
+export interface IMenuParamsNew {
+  category: string;
+  params: IMenuCategoryParams[];
 }
 
 export interface IMenuCategoryParams {
@@ -12,9 +12,26 @@ export interface IMenuCategoryParams {
   radius: number[];
   prices: number[];
 }
-export interface IPriceList {
-  mousses: number[];
-  biscuits: number[];
-  classic: number[];
-  cheesecakes: number[];
+
+export interface IMenuData {
+  group: string;
+  name: string;
+  positions: {
+    itemName: string;
+    imgSrc: string;
+    description: string;
+    sourness: number;
+    sweetness: number;
+    tasteAccent: string;
+    variants: ISizeVariant[];
+  }[];
+}
+
+// Old menu content style (deprecated)
+
+export interface IMenuParams {
+  moussesParams: IMenuCategoryParams;
+  biscuitParams: IMenuCategoryParams;
+  classicParams: IMenuCategoryParams;
+  cheesecakesParams: IMenuCategoryParams;
 }

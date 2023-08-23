@@ -1,5 +1,23 @@
 import { ReactNode } from "react";
 
+export interface IMenuContentNew {
+  category: string;
+  group: string;
+  items: IMenuItemDataNew[];
+}
+
+interface IMenuItemDataNew {
+  itemName: string;
+  description: string;
+  tasteAccent: string;
+  image: string;
+  sourness: number;
+  sweetness: number;
+  variants: number[];
+}
+
+// Old menu content style (deprecated)
+
 interface IMenuItemData {
   itemName: string;
   description: string;

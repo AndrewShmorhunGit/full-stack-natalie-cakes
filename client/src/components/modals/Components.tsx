@@ -19,7 +19,7 @@ import {
   logoSize,
 } from "./Styled";
 
-export function CallForm({ setMedia }: { setMedia: ISetMedia }) {
+export function CallFormModal({ setMedia }: { setMedia: ISetMedia }) {
   const inputWidth = `${setMedia(32, 28, 24, 20)}rem`;
   const toggleColor = (condition: boolean): string => {
     return condition ? palette.main_primary_dark : palette.main_primary;
@@ -177,4 +177,8 @@ export function CallForm({ setMedia }: { setMedia: ISetMedia }) {
       </FlexColumnContainer>
     </form>
   );
+}
+
+export function ErrorModal({ props }: { props: any }) {
+  return <></>;
 }

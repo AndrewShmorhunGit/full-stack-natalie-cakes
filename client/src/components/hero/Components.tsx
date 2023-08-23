@@ -9,7 +9,7 @@ import { IHeroSelectors, ISelectorParams } from "interfaces";
 import React from "react";
 import { mq, appShadows, styles, css } from "styles";
 
-export function HeroSelectorDecoContainer({
+export function HeroSelector({
   selector,
   selectorParams,
   clickHandler,

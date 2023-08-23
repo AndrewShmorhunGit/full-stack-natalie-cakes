@@ -75,6 +75,31 @@ const buttonVariants: any = {
     [mq.medium]: { width: "10rem", height: "4rem", fontSize: "1.6rem" },
     // [mq.small]: { width: "8rem", height: "3.2rem", fontSize: "1.2rem" },
   },
+  error: {
+    minWidth: "12rem",
+    height: "6.8rem",
+    padding: "0rem 4rem",
+    fontWeight: 600,
+    fontSize: "2.4rem",
+    backgroundColor: palette.white,
+    color: palette.error,
+    border: `0.4rem solid ${palette.error}`,
+    [mq.medium]: {
+      minWidth: "10rem",
+      height: "6rem",
+      fontSize: "2rem",
+    },
+    [mq.small]: {
+      minWidth: "10rem",
+      height: "5.4rem",
+      fontSize: "1.8rem",
+    },
+    [mq.mini]: {
+      minWidth: "8rem",
+      height: "4.8rem",
+      fontSize: "1.6rem",
+    },
+  },
   language: {
     height: "4rem",
     border: `0.2rem solid ${palette.background_main}`,

@@ -1,9 +1,12 @@
-import heroBgImage from "content/images/hero/hero-background-img.jpg";
+// import heroBgImage from "content/images/hero/hero-background-img.jpg";
 import { mq, paddingTopBottom, styled } from "styles";
 
 export const HeroSection = styled.main({
   minHeight: "100vh",
-  backgroundImage: `url(${heroBgImage})`,
+  backgroundImage: `url(
+    https://i.postimg.cc/X7m5F270/hero-background-img.jpg
+    )`,
+  // ${heroBgImage}
   backgroundRepeat: "none",
   backgroundSize: "cover",
   paddingBottom: "12rem",

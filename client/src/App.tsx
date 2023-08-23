@@ -16,13 +16,14 @@ import "./styles/App.css";
 import { IAppBox } from "interfaces/IApp";
 // Hooks
 import { useMedia, useLanguage, useHover } from "hooks";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+// import { contentEmpty } from "content/text/text.content";
 
 export function App() {
   // Set JS Media Queries //
   const mediaSettings = useMedia();
   // Set Language Content & Functionality//
-  const languageSettings = useLanguage();
+  const contentSettings = useLanguage();
   // Modal state
   const [isModal, setModal] = useState("none");
 
@@ -32,12 +33,14 @@ export function App() {
   // Main Application params and functions Box
   const appBox: IAppBox = {
     // useLanguage
-    isLanguage: languageSettings.isLanguage,
-    setLanguage: languageSettings.setLanguage,
-    innerContent: languageSettings.innerContent,
-    languages: languageSettings.languages,
-    isLanguageLoading: languageSettings.isLanguageLoading,
-    isLangTransition: languageSettings.isLangTransition,
+    isLanguage: contentSettings.isLanguage,
+    setLanguage: contentSettings.setLanguage,
+    innerContent: contentSettings.innerContent,
+    languages: contentSettings.languages,
+    isLanguageLoading: contentSettings.isLoading,
+    isLanguageError: contentSettings.isError,
+    setContent: contentSettings.setContent,
+    isLangTransition: contentSettings.isLangTransition,
     // useMedia
     windowSize: mediaSettings.windowSize,
     isMedia: mediaSettings.isMedia,
@@ -47,13 +50,21 @@ export function App() {
     hoverRef: useRef(null),
     isModal,
     setModal,
-    // Effects
   };
 
+  // Error validation
+  useEffect(() => {
+    appBox.isLanguageError === true && setModal("error");
+  }, [appBox.isLanguageError]);
+
+  // Remove
+  useEffect(() => {
+    console.log(isModal);
+  }, [isModal]);
   ////////////////////////////////////////////////
 
   return (
-    <AppContainer dir={languageSettings.isLanguage === "hb" ? "rtl" : "ltr"}>
+    <AppContainer dir={contentSettings.isLanguage === "hb" ? "rtl" : "ltr"}>
       <Navigation appBox={appBox} />
       <Hero appBox={appBox} />
       <Information appBox={appBox} />

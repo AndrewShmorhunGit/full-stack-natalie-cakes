@@ -1,5 +1,3 @@
-import { IInnerContent } from "interfaces/IContent";
-
 // Images import
 import {
   moussesChocolatePassionFruit,
@@ -9,7 +7,7 @@ import {
   biscuitsBerryVanilla,
   biscuitsChocolateCaramel,
   biscuitsChocolateRaspberry,
-  biscuitsLemonBlueberry,
+  // biscuitsLemonBlueberry,
   napoleon,
   honeyCake,
   cheesecake,
@@ -17,9 +15,43 @@ import {
 } from "content";
 
 import { createCategoryVariantsArrayData } from "./static.settings.data";
-import { IMenuParams } from "interfaces/IMenu";
+import { IMenuData, IMenuParams, IMenuParamsNew } from "interfaces/IMenu";
+import { IInnerContent, IMenuContentNew } from "interfaces/IContent";
+import { env } from "config/env.config";
 
 const createCategoryVariantsArray = createCategoryVariantsArrayData;
+
+export const createMenuDataNew = (
+  content: IMenuContentNew[],
+  menuParams: IMenuParamsNew[]
+) => {
+  return content.reduce((total: IMenuData[], categoryContent, index) => {
+    const categoryParams = menuParams[index];
+
+    const menuCategory = {
+      group: categoryContent.group,
+      name: categoryContent.category,
+      positions: categoryContent.items.map((position, index) => {
+        return {
+          itemName: position.itemName,
+          imgSrc: env.api.images.menu + position.image,
+          description: position.description,
+          sourness: position.sourness,
+          sweetness: position.sweetness,
+          tasteAccent: position.tasteAccent,
+          variants: createCategoryVariantsArray(
+            position.variants,
+            categoryParams.params[index]
+          ),
+        };
+      }),
+    };
+
+    total.push(menuCategory);
+
+    return total;
+  }, []);
+};
 
 export function createMenuData(
   content: IInnerContent,
@@ -30,6 +62,7 @@ export function createMenuData(
   const menuContent = content.menuContent;
   const birthdayCakes = content.heroSelectors.birthdayCake;
   const cakesAndPies = content.heroSelectors.cakesAndPies;
+
   return {
     categories: [
       {
@@ -116,7 +149,7 @@ export function createMenuData(
           },
           {
             itemName: menuContent.biscuitCakes.lemonBlueberry.itemName,
-            imgSrc: biscuitsLemonBlueberry,
+            imgSrc: env.api.images.menu + "biscuits/lemon-blueberry.svg",
             description: menuContent.biscuitCakes.lemonBlueberry.description,
             sourness: 2,
             sweetness: 3,

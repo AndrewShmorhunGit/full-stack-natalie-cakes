@@ -36,6 +36,8 @@ export interface IAppBox {
   innerContent: IInnerContent;
   languages: ILanguages;
   isLanguageLoading: boolean;
+  isLanguageError: boolean;
+  setContent: React.Dispatch<React.SetStateAction<IInnerContent>>;
   isLangTransition: boolean;
   // Media
   windowSize: number;

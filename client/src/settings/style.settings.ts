@@ -1,6 +1,7 @@
 export class ColorSettings {
   white: string = "white";
   black: string = "black";
+  error: string = "#d02b28";
   main_primary: string = "#FF8E8E";
   main_primary_dark: string = "#995555";
   text_dark: string = "#343A40";
@@ -8,6 +9,7 @@ export class ColorSettings {
   background_second: string = "#FFFCF3";
   background_third: string = "#F9FFFC";
   background_nav_transparent: string = "rgb(230, 128, 128, 0.7)";
+  gradient_primary_to_error: string = `linear-gradient(270deg, ${this.main_primary} 0%, ${this.error} 100%)`;
   gradient_primary_to_primary_dark: string =
     "linear-gradient(270deg, #FF8E8E 0%, #995555 100%)";
   gradient_primary_dark_to_primary: string =

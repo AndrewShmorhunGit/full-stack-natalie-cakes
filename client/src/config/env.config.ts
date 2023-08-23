@@ -8,5 +8,9 @@ export const env = {
   },
   api: {
     server: environment.REACT_APP_API_URL,
+    images: {
+      menu: environment.REACT_APP_IMAGES_URL_ROOT + "menu/",
+      root: environment.REACT_APP_IMAGES_URL_ROOT,
+    },
   },
 };

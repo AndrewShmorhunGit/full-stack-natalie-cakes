@@ -21,7 +21,7 @@ interface IVariant {
   l: string | number;
 }
 
-interface ISizeVariant {
+export interface ISizeVariant {
   size: string;
   radius: number;
   persons: number;
@@ -30,12 +30,12 @@ interface ISizeVariant {
 }
 
 // Price editor function alow us to change all unit size prices
-function editAllPrices(price: number): number {
-  const multiplyPrice = 1;
-  const multiplyTotalPrice = 1;
-  const addAll = 0;
-  return (price * multiplyPrice + addAll) * multiplyTotalPrice;
-}
+// function editAllPrices(price: number): number {
+//   const multiplyPrice = 1;
+//   const multiplyTotalPrice = 1;
+//   const addAll = 0;
+//   return (price * multiplyPrice + addAll) * multiplyTotalPrice;
+// }
 
 // const priceList: IPriceList = {
 //   mousses: [110, 140, 175, 280],
@@ -105,7 +105,8 @@ export function createCategoryVariantsArrayData(
       radius: +radius[size],
       persons: +persons[size],
       weight: +weights[size],
-      price: editAllPrices(+prices[size] + price),
+      // price: editAllPrices(+prices[size] + price),
+      price: +prices[size] + price,
     };
   }
 

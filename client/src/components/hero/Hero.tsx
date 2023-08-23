@@ -1,5 +1,5 @@
 // Components
-import { HeroSelectorDecoContainer } from "./Components";
+import { HeroSelector } from "./Components";
 import { HeroSection, HeroBackDropFilterContainer } from "./Styled";
 import {
   MainHeader,
@@ -104,7 +104,7 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
           >
             {/* HeroSelectors */}
             {heroSelectors.map((selector, index) => (
-              <HeroSelectorDecoContainer
+              <HeroSelector
                 key={
                   typeof selector.name === "string"
                     ? selector.name + index
