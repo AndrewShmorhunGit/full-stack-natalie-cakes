@@ -1,30 +1,17 @@
-import { MenuItem } from "../data/text/menu.content";
+export interface IMenuContentNew {
+  category: string;
+  group: string;
+  items: IMenuItemDataNew[];
+}
 
-export interface IMenuContent {
-  moussesCakes: {
-    name: string;
-    chocolatePassionFruit: MenuItem;
-    strawberriesWithTops: MenuItem;
-    chocolateCherry: MenuItem;
-    berryYogurt: MenuItem;
-  };
-  biscuitCakes: {
-    name: string;
-    berryVanilla: MenuItem;
-    chocolateCaramel: MenuItem;
-    chocolateRaspberry: MenuItem;
-    lemonBlueberry: MenuItem;
-  };
-  classicCakes: {
-    name: string;
-    napoleon: MenuItem;
-    honeyCake: MenuItem;
-  };
-  cheesecakes: {
-    name: string;
-    cheesecake: MenuItem;
-    cheesecakeCaramel: MenuItem;
-  };
+export interface IMenuItemDataNew {
+  itemName: string;
+  description: string;
+  tasteAccent: string;
+  image: string;
+  sourness: number;
+  sweetness: number;
+  variants: number[];
 }
 
 export interface IInnerContent {
@@ -83,7 +70,7 @@ export interface IInnerContent {
   callBackBtn: string;
   // Menu
   menuTitle: string;
-  menuContent: IMenuContent;
+  menuContent: IMenuContentNew[];
   sweetness: string;
   sourness: string;
   taste: string;

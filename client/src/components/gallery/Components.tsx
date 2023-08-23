@@ -22,7 +22,7 @@ export function Carousel({
     setModal: React.Dispatch<React.SetStateAction<string>>;
   };
 }) {
-  console.log("=== Carousel render ===");
+  // console.log("=== Carousel render ===");
   const { slides, slideWidth, sliderColumnGap, length, rotate } =
     carouselParams;
 

@@ -2,7 +2,6 @@ import dotenv from "dotenv";
 import http from "http";
 import mongoose from "mongoose";
 import { app } from "./app";
-// import { contentsData } from "./data/text/text.content";
 
 dotenv.config();
 const port = process.env.PORT || 8080;

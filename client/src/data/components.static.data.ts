@@ -186,12 +186,24 @@ const defaultParams: IMenuCategoryParams = {
   prices: [110, 140, 175, 280],
 };
 
-export const defaultMenuParams = {
-  moussesParams: { ...defaultParams },
-  biscuitParams: { ...defaultParams },
-  classicParams: { ...defaultParams },
-  cheesecakesParams: { ...defaultParams },
-};
+export const defaultMenuParams = [
+  {
+    category: "",
+    params: { ...defaultParams },
+  },
+  {
+    category: "",
+    params: { ...defaultParams },
+  },
+  {
+    category: "",
+    params: { ...defaultParams },
+  },
+  {
+    category: "",
+    params: { ...defaultParams },
+  },
+];
 
 // GALLERY
 

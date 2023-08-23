@@ -1,54 +1,46 @@
-import {
-  IPriceList,
-  IMenuCategoryParams,
-  IMenuParams,
-} from "../../interfaces/IMenu";
+import { IMenuParamsNew } from "../../interfaces/IMenu";
 
-const priceList: IPriceList = {
-  mousses: [110, 140, 175, 280],
-  biscuits: [160, 220, 290, 340],
-  classic: [120, 0, 230, 0],
-  cheesecakes: [110, 0, 210, 0],
-};
-
-// Musses params as a default
-const defaultParams: IMenuCategoryParams = {
-  sizes: ["xs", "s", "m", "l"],
-  persons: [8, 10, 12, 22],
-  weight: [1.2, 1.6, 2.0, 3.3],
-  radius: [180, 200, 220, 260],
-  prices: priceList.mousses,
-};
-
-const biscuitParams: IMenuCategoryParams = {
-  sizes: defaultParams.sizes,
-  persons: [12, 17, 23, 27],
-  weight: [1.7, 2.5, 3.4, 3.9],
-  radius: [180, 200, 220, 240],
-  prices: priceList.biscuits,
-};
-
-const classicParams: IMenuCategoryParams = {
-  sizes: defaultParams.sizes,
-  persons: [8, 0, 15, 0],
-  weight: [1.2, 0, 2.4, 0],
-  radius: defaultParams.radius,
-  prices: priceList.classic,
-};
-
-const cheesecakesParams: IMenuCategoryParams = {
-  sizes: defaultParams.sizes,
-  persons: classicParams.persons,
-  weight: classicParams.weight,
-  radius: defaultParams.radius,
-  prices: priceList.cheesecakes,
-};
-
-const menuParamsData: IMenuParams = {
-  moussesParams: defaultParams,
-  biscuitParams,
-  classicParams,
-  cheesecakesParams,
-};
+const menuParamsData: IMenuParamsNew[] = [
+  {
+    category: "mousses",
+    params: {
+      sizes: ["xs", "s", "m", "l"],
+      persons: [8, 10, 12, 22],
+      weight: [1.2, 1.6, 2.0, 3.3],
+      radius: [180, 200, 220, 260],
+      prices: [110, 140, 175, 280],
+    },
+  },
+  {
+    category: "biscuits",
+    params: {
+      sizes: ["xs", "s", "m", "l"],
+      persons: [12, 17, 23, 27],
+      weight: [1.7, 2.5, 3.4, 3.9],
+      radius: [180, 200, 220, 240],
+      prices: [160, 220, 290, 340],
+    },
+  },
+  {
+    category: "classics",
+    params: {
+      sizes: ["xs", "s", "m", "l"],
+      persons: [8, 0, 15, 0],
+      weight: [1.2, 0, 2.4, 0],
+      radius: [180, 200, 220, 260],
+      prices: [120, 0, 230, 0],
+    },
+  },
+  {
+    category: "cheesecakes",
+    params: {
+      sizes: ["xs", "s", "m", "l"],
+      persons: [8, 0, 15, 0],
+      weight: [1.2, 0, 2.4, 0],
+      radius: [180, 200, 220, 260],
+      prices: [110, 0, 210, 0],
+    },
+  },
+];
 
 export { menuParamsData };

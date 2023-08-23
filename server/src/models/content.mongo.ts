@@ -2,39 +2,7 @@ import mongoose from "mongoose";
 import { IInnerContent } from "../interfaces/IContent";
 
 const stringSchema = { type: String, required: true };
-
-const menuItemSchema = {
-  itemName: stringSchema,
-  description: stringSchema,
-  tasteAccent: stringSchema,
-};
-
-const menuContentSchema = {
-  moussesCakes: {
-    name: stringSchema,
-    chocolatePassionFruit: menuItemSchema,
-    strawberriesWithTops: menuItemSchema,
-    chocolateCherry: menuItemSchema,
-    berryYogurt: menuItemSchema,
-  },
-  biscuitCakes: {
-    name: stringSchema,
-    berryVanilla: menuItemSchema,
-    chocolateCaramel: menuItemSchema,
-    chocolateRaspberry: menuItemSchema,
-    lemonBlueberry: menuItemSchema,
-  },
-  classicCakes: {
-    name: stringSchema,
-    napoleon: menuItemSchema,
-    honeyCake: menuItemSchema,
-  },
-  cheesecakes: {
-    name: stringSchema,
-    cheesecake: menuItemSchema,
-    cheesecakeCaramel: menuItemSchema,
-  },
-};
+const numberSchema = { type: Number, required: true };
 
 const contentLanguageSchema = {
   // Navigation
@@ -99,7 +67,27 @@ const contentLanguageSchema = {
   callBackBtn: stringSchema,
   //Menu
   menuTitle: stringSchema,
-  menuContent: menuContentSchema,
+  menuContent: {
+    type: [
+      {
+        category: stringSchema,
+        group: stringSchema,
+        items: [
+          {
+            itemName: stringSchema,
+            description: stringSchema,
+            tasteAccent: stringSchema,
+            image: stringSchema,
+            sourness: numberSchema,
+            sweetness: numberSchema,
+            variants: { type: [Number], required: true },
+          },
+        ],
+      },
+    ],
+    required: true,
+  },
+
   sweetness: stringSchema,
   sourness: stringSchema,
   taste: stringSchema,

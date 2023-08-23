@@ -16,41 +16,6 @@ interface IMenuItemDataNew {
   variants: number[];
 }
 
-// Old menu content style (deprecated)
-
-interface IMenuItemData {
-  itemName: string;
-  description: string;
-  tasteAccent: string;
-}
-
-export interface IMenuContent {
-  moussesCakes: {
-    name: string;
-    chocolatePassionFruit: IMenuItemData;
-    strawberriesWithTops: IMenuItemData;
-    chocolateCherry: IMenuItemData;
-    berryYogurt: IMenuItemData;
-  };
-  biscuitCakes: {
-    name: string;
-    berryVanilla: IMenuItemData;
-    chocolateCaramel: IMenuItemData;
-    chocolateRaspberry: IMenuItemData;
-    lemonBlueberry: IMenuItemData;
-  };
-  classicCakes: {
-    name: string;
-    napoleon: IMenuItemData;
-    honeyCake: IMenuItemData;
-  };
-  cheesecakes: {
-    name: string;
-    cheesecake: IMenuItemData;
-    cheesecakeCaramel: IMenuItemData;
-  };
-}
-
 export interface IInnerContent {
   // Nav
   about: string | ReactNode;
@@ -107,7 +72,7 @@ export interface IInnerContent {
   callBackBtn: string | ReactNode;
   // Menu
   menuTitle: string | ReactNode;
-  menuContent: IMenuContent;
+  menuContent: IMenuContentNew[];
   sweetness: string;
   sourness: string;
   taste: string;

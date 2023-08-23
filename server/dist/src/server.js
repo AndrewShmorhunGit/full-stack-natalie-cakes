@@ -16,7 +16,6 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const http_1 = __importDefault(require("http"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const app_1 = require("./app");
-// import { contentsData } from "./data/text/text.content";
 dotenv_1.default.config();
 const port = process.env.PORT || 8080;
 const uri = process.env.MONGO_URL || "Error, check .env variables!";

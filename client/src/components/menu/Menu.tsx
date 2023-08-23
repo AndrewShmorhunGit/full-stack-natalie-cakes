@@ -45,7 +45,7 @@ import { loading } from "utils/functions";
 import { useEffect, useMemo, useState } from "react";
 import { useAsync } from "hooks/useAsync";
 import { httpGetMenuParams } from "utils/http.requests";
-import { IMenuParams } from "interfaces/IMenu";
+import { IMenuParamsNew } from "interfaces/IMenu";
 import { defaultMenuParams } from "data/components.static.data";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
@@ -65,22 +65,27 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
   } = useAsync();
 
   const [isMenuParams, setMenuParams] =
-    useState<IMenuParams>(defaultMenuParams);
+    useState<IMenuParamsNew[]>(defaultMenuParams);
 
   useEffect(() => {
-    run(httpGetMenuParams().then((data) => setMenuParams(data)));
+    run(
+      httpGetMenuParams().then((data) => {
+        setMenuParams(data);
+        console.log(data);
+      })
+    );
   }, [run]);
 
-  const menuData = createMenuData(content, isMenuParams);
+  const menuData = createMenuData(content.menuContent, isMenuParams);
 
   const categories: { [x: string]: boolean } | null = useMemo(() => {
-    return createMenuData(contentEmpty, isMenuParams).categories.reduce(
+    return createMenuData(contentEmpty.menuContent, isMenuParams).reduce(
       (total, _category, index) => {
         total = {
           ...total,
           [`category${index}`]: false,
         };
-        console.log("==== Menu categories state created ====");
+        // console.log("==== Menu categories state created ====");
         return total;
       },
       {}
@@ -108,7 +113,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
           <ErrorSection section={"menu"} />
         ) : (
           <>
-            {menuData.categories.map((category, index) => {
+            {menuData.map((category, index) => {
               const isArrowProp = `category${index}`;
               return (
                 <FlexColumnContainer
@@ -120,7 +125,7 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                 >
                   {index === 0 ||
                   (index > 1 &&
-                    menuData.categories[index - 1].group !== category.group) ? (
+                    menuData[index - 1].group !== category.group) ? (
                     <div>
                       <Container
                         className={css({

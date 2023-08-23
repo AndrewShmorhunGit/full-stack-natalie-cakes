@@ -2,7 +2,7 @@ import { ISizeVariant } from "data/static.settings.data";
 
 export interface IMenuParamsNew {
   category: string;
-  params: IMenuCategoryParams[];
+  params: IMenuCategoryParams;
 }
 
 export interface IMenuCategoryParams {
@@ -25,13 +25,4 @@ export interface IMenuData {
     tasteAccent: string;
     variants: ISizeVariant[];
   }[];
-}
-
-// Old menu content style (deprecated)
-
-export interface IMenuParams {
-  moussesParams: IMenuCategoryParams;
-  biscuitParams: IMenuCategoryParams;
-  classicParams: IMenuCategoryParams;
-  cheesecakesParams: IMenuCategoryParams;
 }
