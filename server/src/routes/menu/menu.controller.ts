@@ -1,4 +1,4 @@
-import { IMenuParamsNew } from "../../interfaces/IMenu";
+import { IMenuParams } from "../../interfaces/IMenu";
 import { getMenuParams } from "../../models/menu.model";
 import { Request } from "express";
 
@@ -6,7 +6,7 @@ import { Request } from "express";
 async function httpGetMenuParams(
   req: Request,
   res: any
-): Promise<IMenuParamsNew[]> {
+): Promise<IMenuParams[]> {
   return res.status(200).json(await getMenuParams());
 }
 

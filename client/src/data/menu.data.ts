@@ -1,5 +1,5 @@
 import { createCategoryVariantsArrayData } from "./static.settings.data";
-import { IMenuData, IMenuParamsNew } from "interfaces/IMenu";
+import { IMenuData, IMenuParams } from "interfaces/IMenu";
 import { IMenuContentNew } from "interfaces/IContent";
 import { env } from "config/env.config";
 
@@ -7,7 +7,7 @@ const createCategoryVariantsArray = createCategoryVariantsArrayData;
 
 export const createMenuData = (
   content: IMenuContentNew[],
-  menuParams: IMenuParamsNew[]
+  menuParams: IMenuParams[]
 ) => {
   return content.reduce((total: IMenuData[], categoryContent, index) => {
     const categoryParams = menuParams[index];

@@ -45,7 +45,7 @@ import { loading } from "utils/functions";
 import { useEffect, useMemo, useState } from "react";
 import { useAsync } from "hooks/useAsync";
 import { httpGetMenuParams } from "utils/http.requests";
-import { IMenuParamsNew } from "interfaces/IMenu";
+import { IMenuParams } from "interfaces/IMenu";
 import { defaultMenuParams } from "data/components.static.data";
 
 export function Menu({ appBox }: { appBox: IAppBox }) {
@@ -65,12 +65,12 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
   } = useAsync();
 
   const [isMenuParams, setMenuParams] =
-    useState<IMenuParamsNew[]>(defaultMenuParams);
+    useState<IMenuParams[]>(defaultMenuParams);
 
   useEffect(() => {
     run(
       httpGetMenuParams().then((data) => {
-        setMenuParams(data);
+        setMenuParams(data.menuParamsData);
         console.log(data);
       })
     );

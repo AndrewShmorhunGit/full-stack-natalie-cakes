@@ -29,58 +29,6 @@ export interface ISizeVariant {
   price: number;
 }
 
-// Price editor function alow us to change all unit size prices
-// function editAllPrices(price: number): number {
-//   const multiplyPrice = 1;
-//   const multiplyTotalPrice = 1;
-//   const addAll = 0;
-//   return (price * multiplyPrice + addAll) * multiplyTotalPrice;
-// }
-
-// const priceList: IPriceList = {
-//   mousses: [110, 140, 175, 280],
-//   biscuits: [160, 220, 290, 340],
-//   classic: [120, 0, 230, 0],
-//   cheesecakes: [110, 0, 210, 0],
-// };
-
-// export function getCategoryParams() {
-//   // Musses params as a default
-//   const moussesParams: IMenuCategoryParams = {
-//     sizes: ["xs", "s", "m", "l"],
-//     persons: [8, 10, 12, 22],
-//     weight: [1.2, 1.6, 2.0, 3.3],
-//     radius: [180, 200, 220, 260],
-//     prices: priceList.mousses,
-//   };
-
-//   const biscuitParams: IMenuCategoryParams = {
-//     sizes: moussesParams.sizes,
-//     persons: [12, 17, 23, 27],
-//     weight: [1.7, 2.5, 3.4, 3.9],
-//     radius: [180, 200, 220, 240],
-//     prices: priceList.biscuits,
-//   };
-
-//   const classicParams: IMenuCategoryParams = {
-//     sizes: moussesParams.sizes,
-//     persons: [8, 0, 15, 0],
-//     weight: [1.2, 0, 2.4, 0],
-//     radius: moussesParams.radius,
-//     prices: priceList.classic,
-//   };
-
-//   const cheesecakesParams: IMenuCategoryParams = {
-//     sizes: moussesParams.sizes,
-//     persons: classicParams.persons,
-//     weight: classicParams.weight,
-//     radius: moussesParams.radius,
-//     prices: priceList.cheesecakes,
-//   };
-
-//   return { moussesParams, biscuitParams, classicParams, cheesecakesParams };
-// }
-
 export function createCategoryVariantsArrayData(
   // This array allow us to add or subtract from the categoryParams.price array for each menu unit size
   [xs, s, m, l]: (number | null)[] = [0, 0, 0, 0],

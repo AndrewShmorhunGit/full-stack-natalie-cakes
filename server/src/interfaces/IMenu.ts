@@ -1,6 +1,10 @@
-export interface IMenuParamsNew {
+export interface IMenuParams {
   category: string;
   params: IMenuCategoryParams;
+}
+
+export interface IMenu {
+  menuParamsData: IMenuParams[];
 }
 
 export interface IMenuCategoryParams {

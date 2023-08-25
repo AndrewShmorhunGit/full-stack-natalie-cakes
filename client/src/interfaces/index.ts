@@ -6,10 +6,11 @@ import { IContent, IInnerContent } from "./IContent";
 import { IAppBox, ILanguages, IMedia, ISetMedia } from "./IApp";
 import { IInfoBlock } from "./IInfo";
 import { ICarouselParams } from "./IGallery";
-import { IMenuCategoryParams, IMenuParamsNew } from "./IMenu";
+import { IMenuCategoryParams, IMenuParams, IMenu } from "./IMenu";
 
 export type {
-  IMenuParamsNew,
+  IMenu,
+  IMenuParams,
   IMenuCategoryParams,
   ICarouselParams,
   IAppBox,

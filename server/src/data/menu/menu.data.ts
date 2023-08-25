@@ -1,6 +1,6 @@
-import { IMenuParamsNew } from "../../interfaces/IMenu";
+import { IMenuParams } from "../../interfaces/IMenu";
 
-const menuParamsData: IMenuParamsNew[] = [
+const menuParamsData: IMenuParams[] = [
   {
     category: "mousses",
     params: {

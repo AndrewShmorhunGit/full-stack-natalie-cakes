@@ -16,7 +16,7 @@ exports.getMenuParams = void 0;
 const menu_mongo_1 = __importDefault(require("./menu.mongo"));
 function getMenuParams() {
     return __awaiter(this, void 0, void 0, function* () {
-        return yield menu_mongo_1.default.findOne([], {
+        return yield menu_mongo_1.default.findOne({}, {
             _id: 0,
         });
     });

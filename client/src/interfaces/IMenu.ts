@@ -1,6 +1,10 @@
 import { ISizeVariant } from "data/static.settings.data";
 
-export interface IMenuParamsNew {
+export interface IMenu {
+  menuParamsData: IMenuParams[];
+}
+
+export interface IMenuParams {
   category: string;
   params: IMenuCategoryParams;
 }

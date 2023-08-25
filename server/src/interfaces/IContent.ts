@@ -1,10 +1,10 @@
-export interface IMenuContentNew {
+export interface IMenuContent {
   category: string;
   group: string;
-  items: IMenuItemDataNew[];
+  items: IMenuItemData[];
 }
 
-export interface IMenuItemDataNew {
+export interface IMenuItemData {
   itemName: string;
   description: string;
   tasteAccent: string;
@@ -70,7 +70,7 @@ export interface IInnerContent {
   callBackBtn: string;
   // Menu
   menuTitle: string;
-  menuContent: IMenuContentNew[];
+  menuContent: IMenuContent[];
   sweetness: string;
   sourness: string;
   taste: string;
