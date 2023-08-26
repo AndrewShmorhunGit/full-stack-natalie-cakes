@@ -40,18 +40,7 @@ import classic11 from "./images/gallery/classic/design_classic_11.svg";
 import classic12 from "./images/gallery/classic/design_classic_12.svg";
 import classic13 from "./images/gallery/classic/design_classic_13.svg";
 
-import moussesChocolatePassionFruit from "./images/menu/mousses/chocolate-passion-fruit.svg";
-import moussesStrawberriesWithTops from "./images/menu/mousses/strawberries-with-tops.svg";
-import moussesChocolateCherry from "./images/menu/mousses/chocolate-cherry.svg";
-import moussesBerryYogurt from "./images/menu/mousses/berry-yogurt.svg";
-import biscuitsBerryVanilla from "./images/menu/biscuits/berry-vanilla.svg";
-import biscuitsChocolateCaramel from "./images/menu/biscuits/chocolate-caramel.svg";
-import biscuitsChocolateRaspberry from "./images/menu/biscuits/chocolate-raspberry.svg";
-import biscuitsLemonBlueberry from "./images/menu/biscuits/lemon-blueberry.svg";
-import napoleon from "./images/menu/classics/napoleon.svg";
-import honeyCake from "./images/menu/classics/honey-cake.svg";
-import cheesecake from "./images/menu/cheesecakes/cheesecake.svg";
-import cheesecakeCaramel from "./images/menu/cheesecakes/cheesecake-caramel.svg";
+import spinner from "./images/design/spinner/spinner.svg";
 
 export {
   boy1,
@@ -92,16 +81,5 @@ export {
   classic11,
   classic12,
   classic13,
-  moussesBerryYogurt,
-  moussesChocolateCherry,
-  moussesStrawberriesWithTops,
-  moussesChocolatePassionFruit,
-  biscuitsBerryVanilla,
-  biscuitsChocolateCaramel,
-  biscuitsChocolateRaspberry,
-  biscuitsLemonBlueberry,
-  napoleon,
-  cheesecake,
-  honeyCake,
-  cheesecakeCaramel,
+  spinner,
 };

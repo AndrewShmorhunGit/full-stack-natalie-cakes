@@ -30,9 +30,7 @@ export const createMenuData = (
         };
       }),
     };
-
     total.push(menuCategory);
-    console.log(total);
     return total;
   }, []);
 };

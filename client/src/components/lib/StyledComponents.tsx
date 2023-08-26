@@ -11,13 +11,23 @@ import {
   createGrid,
 } from "styles";
 // Interfaces
-
+import { keyframes } from "@emotion/react";
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace";
 // Content
 
 ///////////////////////////
 // STYLED APP COMPONENTS //
 ///////////////////////////
+const spin = keyframes({
+  "0%": { transform: "rotate(0deg)" },
+  "100%": { transform: "rotate(1turn)" },
+});
+
+export const Spinner = styled.img({
+  width: "18rem",
+  height: "18rem",
+  animation: `${spin} 2s linear infinite`,
+});
 
 // APP
 

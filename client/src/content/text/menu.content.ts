@@ -22,38 +22,3 @@ export const menuContentEmpty: IMenuContentNew[] = [
   emptyCategory,
   emptyCategory,
 ];
-
-// Old menu content style (deprecated)
-
-// const emptyContentBlock = {
-//   itemName: "Loading",
-//   description: "",
-//   tasteAccent: "",
-// };
-
-// export const menuContentEmpty: IMenuContent = {
-//   moussesCakes: {
-//     name: "Loading",
-//     chocolatePassionFruit: emptyContentBlock,
-//     strawberriesWithTops: emptyContentBlock,
-//     chocolateCherry: emptyContentBlock,
-//     berryYogurt: emptyContentBlock,
-//   },
-//   biscuitCakes: {
-//     name: "Loading",
-//     berryVanilla: emptyContentBlock,
-//     chocolateCaramel: emptyContentBlock,
-//     chocolateRaspberry: emptyContentBlock,
-//     lemonBlueberry: emptyContentBlock,
-//   },
-//   classicCakes: {
-//     name: "Loading",
-//     napoleon: emptyContentBlock,
-//     honeyCake: emptyContentBlock,
-//   },
-//   cheesecakes: {
-//     name: "Loading",
-//     cheesecake: emptyContentBlock,
-//     cheesecakeCaramel: emptyContentBlock,
-//   },
-// };

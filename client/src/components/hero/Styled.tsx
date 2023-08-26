@@ -2,7 +2,7 @@
 import { mq, paddingTopBottom, styled } from "styles";
 
 export const HeroSection = styled.main({
-  minHeight: "100vh",
+  // minHeight: "100vh",
   backgroundImage: `url(
     https://i.postimg.cc/X7m5F270/hero-background-img.jpg
     )`,

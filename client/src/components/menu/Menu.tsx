@@ -1,5 +1,5 @@
 // Components
-import { UpDownArrow, GetRateStars } from "./Components";
+import { UpDownArrow, GetRateStars, ImgOnLoad } from "./Components";
 import {
   MenuSection,
   MenuCategoryContainer,
@@ -126,7 +126,9 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                   {index === 0 ||
                   (index > 1 &&
                     menuData[index - 1].group !== category.group) ? (
-                    <div>
+                    <div
+                      className={css(!category.group && { display: "none" })}
+                    >
                       <Container
                         className={css({
                           paddingBottom: "4rem",
@@ -231,20 +233,12 @@ export function Menu({ appBox }: { appBox: IAppBox }) {
                                 ...paddingTopBottom(2.4),
                                 height: "auto",
                               })}
+                              onClick={() => setModal("test")}
                             >
-                              <img
+                              <ImgOnLoad
+                                category={category.name}
                                 src={item.imgSrc}
-                                alt={item.description}
-                                className={css({
-                                  cursor: "pointer",
-                                  // minWidth: "28rem",
-                                  overflow: "hidden",
-                                  minHeight:
-                                    category.name === "biscuit cakes"
-                                      ? "42rem"
-                                      : "18rem",
-                                })}
-                                onClick={() => setModal("test")}
+                                description={item.description}
                               />
                             </FlexCenterContainer>
                             {/* // From Here // */}

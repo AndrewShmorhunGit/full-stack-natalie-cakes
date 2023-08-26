@@ -53,7 +53,6 @@ export function createCategoryVariantsArrayData(
       radius: +radius[size],
       persons: +persons[size],
       weight: +weights[size],
-      // price: editAllPrices(+prices[size] + price),
       price: +prices[size] + price,
     };
   }

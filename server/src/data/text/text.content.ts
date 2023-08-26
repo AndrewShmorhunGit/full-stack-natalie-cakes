@@ -249,12 +249,11 @@ const contentsData = {
       cart: ["бисквитные торты", "классические торты", "чизкейки", "муссы"],
     },
     callBackBtn: "обратный вызов",
-
     menuTitle: "меню",
     menuContent: [
       {
         category: "пирожные муссовые",
-        group: "торты на день рождения",
+        group: "авторские торты",
         items: [
           {
             itemName: "шоколад - маракуйя",
@@ -294,9 +293,10 @@ const contentsData = {
           },
         ],
       },
+
       {
         category: "пирожные бисквитные",
-        group: "торты на день рождения",
+        group: "авторские торты",
         items: [
           {
             itemName: "ягода - ваниль",
@@ -338,7 +338,7 @@ const contentsData = {
       },
       {
         category: "классические торты",
-        group: "торты и пироги",
+        group: "торты & пироги",
         items: [
           {
             itemName: "наполеон",
@@ -362,7 +362,7 @@ const contentsData = {
       },
       {
         category: "чизкейки",
-        group: "торты и пироги",
+        group: "торты & пироги",
         items: [
           {
             itemName: "чизкейк",
@@ -448,7 +448,7 @@ const contentsData = {
     menuContent: [
       {
         category: "עוגות מוס",
-        group: "עוגות ליום ההולדת",
+        group: "עוגות מעצבים",
         items: [
           {
             itemName: "שוקולד - פסיפלורה",
@@ -490,7 +490,7 @@ const contentsData = {
       },
       {
         category: "עוגות ביסקוויטיות",
-        group: "עוגות ליום ההולדת",
+        group: "עוגות מעצבים",
         items: [
           {
             itemName: "תות - וניל",
@@ -532,7 +532,7 @@ const contentsData = {
       },
       {
         category: "עוגות קלאסיות",
-        group: "עוגות ופאיים",
+        group: "עוגות ופאי",
         items: [
           {
             itemName: "נפוליאון",
@@ -556,7 +556,7 @@ const contentsData = {
       },
       {
         category: "עוגות גבינה",
-        group: "עוגות ופאיים",
+        group: "עוגות ופאי",
         items: [
           {
             itemName: "גבינה",

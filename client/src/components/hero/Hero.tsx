@@ -41,7 +41,6 @@ export function Hero({ appBox }: { appBox: IAppBox }) {
         <FlexColumnContainer
           className={css({
             ...container,
-
             hight: "100%",
           })}
         >
